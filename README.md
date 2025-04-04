@@ -46,10 +46,10 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 <h2 id="getting-started">Getting started</h2>
 
 1. Accept our invitations to the `shopify-skill-test` repository and the `ms-skill-test` store.
-2. Clone the `BRANCHNAME` branch of the repository: `git clone -b BRANCHNAME https://github.com/marvelandsnap/shopify-skill-test.git`
+2. Clone the `smarshall` branch of the repository: `git clone -b smarshall https://github.com/marvelandsnap/shopify-skill-test.git`
 3. Prepare for local development by running `gulp` and `shopify theme dev --store=ms-skill-test.myshopify.com`. <strong>If you are prompted for a password, it is `datwat`.</strong>
 4. Read the remaining requirements <em>in full</em> before you begin development.
-5. Commit and push your work to the `BRANCHNAME` branch.
+5. Commit and push your work to the `smarshall` branch.
 
 ## General requirements
 
@@ -140,7 +140,7 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 
 - **Don’t** make any changes to our store's data during your skill test.
 - **Don’t** install or use any additional packages, libraries, apps, plugins, etc. that aren’t already included with our starter theme and store.
-- **Don’t** pull from or push to any branches of the `shopify-skill-test` repository *except* for the `BRANCHNAME` branch we have created for you.
+- **Don’t** pull from or push to any branches of the `shopify-skill-test` repository *except* for the `smarshall` branch we have created for you.
 
 ## Creators
 
