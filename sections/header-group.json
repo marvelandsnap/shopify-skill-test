@@ -1,0 +1,12 @@
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "navbar": {
+      "type": "navbar"
+    }
+  },
+  "order": [
+    "navbar"
+  ]
+}

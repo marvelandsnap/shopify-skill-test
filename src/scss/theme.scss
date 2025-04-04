@@ -1,0 +1,12 @@
+/* CORE (THEME FUNCTIONS, VARIABLES, AND BOOTSTRAP) **************************/
+
+@import 'core';
+
+/* THEME *********************************************************************/
+
+@import 'sections/**/*';
+@import 'snippets/**/*';
+
+/* THIRD-PARTY PACKAGES ******************************************************/
+
+@import '@accessible360/accessible-slick/slick/slick';

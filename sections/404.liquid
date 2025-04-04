@@ -1,0 +1,22 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: '404.liquid' -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "404",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "404"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["404"]
+  }
+}
+{%- endschema -%}

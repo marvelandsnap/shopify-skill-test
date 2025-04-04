@@ -1,0 +1,22 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: 'blog.liquid' -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Blog",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Blog"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["blog"]
+  }
+}
+{%- endschema -%}

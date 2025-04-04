@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "activate-account": {
+      "type": "activate-account"
+    }
+  },
+  "order": [
+    "activate-account"
+  ]
+}

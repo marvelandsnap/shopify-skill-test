@@ -1,0 +1,25 @@
+{%- capture section_content -%}
+  <div class="container text-center">
+    <h1 class="mb-5">Welcome to the Marvel &amp; Snap Shopify Skill Test!</h1>
+    <p class="h4">Please refer to <code>README.md</code> for instructions. Good luck!</p>
+  </div>
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Index",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Index"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["index"]
+  }
+}
+{%- endschema -%}

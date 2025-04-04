@@ -1,0 +1,22 @@
+<title>
+  {%- liquid
+    assign separator = ' &ndash; '
+    if template == 'gift_card'
+      assign formatted_balance = gift_card.balance | money_without_trailing_zeros | strip_html
+      echo 'gift_cards.issued.title' | t: value: formatted_balance, shop: shop.name
+    else
+      echo page_title
+      if current_tags
+        echo separator | append: 'tagged "'
+        echo current_tags | join: ', '
+        echo '"'
+      endif
+      if current_page != 1
+        echo separator | append: 'Page ' | append: current_page
+      endif
+      unless page_title contains shop.name
+        echo separator | append: shop.name
+      endunless
+    endif
+  -%}
+</title>

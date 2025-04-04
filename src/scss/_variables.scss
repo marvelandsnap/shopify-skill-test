@@ -1,0 +1,31 @@
+/* THEME VARIABLES ***********************************************************/
+
+// Add your own!
+
+/* BOOTSTRAP VARIABLES *******************************************************/
+
+$spacer: px-to-rem(16);
+
+$spacers: (
+  0:  0,
+  1:  $spacer * .25, // 4px
+  2:  $spacer * .5,  // 8px
+  3:  $spacer * .75, // 12px
+  4:  $spacer,       // 16px
+  5:  $spacer * 1.5, // 24px
+  6:  $spacer * 2,   // 32px
+  7:  $spacer * 3,   // 48px
+  8:  $spacer * 4,   // 64px
+  9:  $spacer * 6,   // 96px
+  10: $spacer * 8,   // 128px
+  11: $spacer * 12,  // 192px
+  12: $spacer * 16,  // 256px
+  13: $spacer * 24,  // 384px
+  14: $spacer * 32,  // 512px
+  15: $spacer * 40,  // 640px
+  16: $spacer * 48,  // 768px
+);
+
+$paragraph-margin-bottom: 1em;
+
+$font-family-sans-serif: 'Montserrat', sans-serif;

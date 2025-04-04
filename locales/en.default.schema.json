@@ -1,0 +1,13 @@
+{
+  "settings_schema": {
+    "identity": {
+      "name": "Identity",
+      "settings": {
+        "favicon": {
+          "label": "Favicon",
+          "info": "Displayed at 32 x 32px"
+        }
+      }
+    }
+  }
+}

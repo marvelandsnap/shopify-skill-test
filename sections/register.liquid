@@ -1,0 +1,22 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: 'register.liquid', customers_template: true -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Register",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Register"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["customers/register"]
+  }
+}
+{%- endschema -%}

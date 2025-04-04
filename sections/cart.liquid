@@ -1,0 +1,22 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: 'cart.liquid' -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Cart",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Cart"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["cart"]
+  }
+}
+{%- endschema -%}

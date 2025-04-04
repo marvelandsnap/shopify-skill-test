@@ -1,0 +1,22 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: 'addresses.liquid', customers_template: true -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Addresses",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Addresses"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["customers/addresses"]
+  }
+}
+{%- endschema -%}

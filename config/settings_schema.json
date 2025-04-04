@@ -1,0 +1,21 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Shopify Skill Test",
+    "theme_version": "1.0.0",
+    "theme_author": "Marvel & Snap",
+    "theme_documentation_url": "https://github.com/marvelandsnap/shopify-skill-test",
+    "theme_support_url": "https://www.marvelandsnap.com"
+  },
+  {
+    "name": "t:settings_schema.identity.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.identity.settings.favicon.label",
+        "info": "t:settings_schema.identity.settings.favicon.info"
+      }
+    ]
+  }
+]

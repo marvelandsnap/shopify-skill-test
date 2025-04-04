@@ -1,0 +1,12 @@
+.vscode/*
+node_modules/*
+src/*
+.eslintrc.json
+.gitignore
+.npmrc
+.prettierrc.json
+.shopifyignore
+.theme-check.yml
+gulpfile.js
+package-lock.json
+package.json
