@@ -4,7 +4,7 @@ Thank you for taking the time to participate in this skill test. We are excited 
 
 ## About the starter theme
 
-Your skill test will incorporate a “bare” version of our Bootify starter theme, which includes our preferred folder and file structure, packages, and `gulp` tasks for compiling styles and scripts for development and production.
+Your skill test will incorporate a “bare” version of our custom Shopify starter theme, which includes our preferred folder and file structure, packages, and `gulp` tasks for compiling styles and scripts for development and production.
 
 Our Shopify themes are typically built using packages such as:
 
@@ -48,7 +48,7 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 1. Accept our invitations to the `shopify-skill-test` repository and the `ms-skill-test` store.
 2. Clone the `BRANCHNAME` branch of the repository: `git clone -b BRANCHNAME https://github.com/marvelandsnap/shopify-skill-test.git`
 3. Prepare for local development by running `gulp` and `shopify theme dev --store=ms-skill-test.myshopify.com`. <strong>If you are prompted for a password, it is `datwat`.</strong>
-4. Read the following requirements <em>in full</em> before you begin development.
+4. Read the remaining requirements <em>in full</em> before you begin development.
 5. Commit and push your work to the `BRANCHNAME` branch.
 
 ## General requirements
