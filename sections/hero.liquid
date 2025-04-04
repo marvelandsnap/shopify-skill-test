@@ -1,0 +1,19 @@
+{%- capture section_content -%}
+  {%- render 'utility.make-section-placeholder', filename: 'hero.liquid' -%}
+{%- endcapture -%}
+
+{%- render 'utility.make-section', section_content: section_content -%}
+
+{%- schema -%}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{%- endschema -%}

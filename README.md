@@ -20,7 +20,8 @@ Our Shopify themes are typically built using packages such as:
 
 ## About the design
 
-- Refer to Figma for the complete design: https://www.figma.com/design/D0SMup9URKQcZH6s3TUb6x/M%26S---Developer-Skill-Test?node-id=0-1&t=QKarkp6Bn1ov6L6r-1
+- Refer to Figma for the complete design: https://www.figma.com/design/D0SMup9URKQcZH6s3TUb6x/M%26S---Developer-Skill-Test
+- You will need to create a Figma account (if you do not already have one) to inspect the design. <strong>If you are prompted for a password, it is `marvelandsnap`.</strong>
 - We have already included the [Montserrat](https://fonts.google.com/specimen/Montserrat) font in our starter theme (via the Google Fonts API) and assigned it to Bootstrap's `$font-family-sans-serif` SCSS variable.
 
 ## About the shop
@@ -46,7 +47,7 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 
 1. Accept our invitations to the `shopify-skill-test` repository and the `ms-skill-test` store.
 2. Clone the `BRANCHNAME` branch of the repository: `git clone -b BRANCHNAME https://github.com/marvelandsnap/shopify-skill-test.git`
-3. Prepare for local development by running `gulp` and `shopify theme dev --store=ms-skill-test.myshopify.com`. <strong>The store password is `datwat`.</strong>
+3. Prepare for local development by running `gulp` and `shopify theme dev --store=ms-skill-test.myshopify.com`. <strong>If you are prompted for a password, it is `datwat`.</strong>
 4. Read the following requirements <em>in full</em> before you begin development.
 5. Commit and push your work to the `BRANCHNAME` branch.
 
@@ -103,6 +104,7 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
   - Price;
   - Description;
   - Link.
+- The products do not need to appear in the same order as they do in the design.
 
 <h3 id="product-template">Product (<code>templates/product.liquid</code>)</h3>
 
@@ -136,9 +138,9 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 
 ### Please don’t:
 
-- **Don’t** make any changes to our store's data during your skill test!
-- **Don’t** install or use any additional packages, libraries, apps, plugins, etc. that aren’t already included with our starter theme.
-- **Don’t** pull from or push to any branches of the `timber-skill-test` repository *except* for the `BRANCHNAME` branch we have created for you.
+- **Don’t** make any changes to our store's data during your skill test.
+- **Don’t** install or use any additional packages, libraries, apps, plugins, etc. that aren’t already included with our starter theme and store.
+- **Don’t** pull from or push to any branches of the `shopify-skill-test` repository *except* for the `BRANCHNAME` branch we have created for you.
 
 ## Creators
 
