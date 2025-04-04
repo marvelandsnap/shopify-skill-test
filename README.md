@@ -111,19 +111,19 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 - Using `sections/product.liquid` (which is already included in this template), build the provided design for the "all products" collection (`/collections/all`).
 - The product images (left-hand column) must be a carousel using [accessible-slick](https://github.com/Accessible360/accessible-slick).
 - The product details (right-hand column) must include the following product attributes:
-  - Title
-  - Price, which is updated via [JavaScript](#javascript) when switching between variants
-  - Description
+  - Title;
+  - Price, which is updated via [JavaScript](#javascript) when switching between variants;
+  - Description.
 - The product add-to-cart form (right-hand column) must allow the user to:
   - Choose a product variant with `select`;
   - Enter a quantity of the selected variant with `input[type="number"]`;
   - Add the product variant and quantity to their cart.
 - The product accordion (right-hand-column) must render the following accordion titles and `richtext` metafields:
-  - Product Details (`product.metafields.accordion.product_details`)
-  - Ingredients (`product.metafields.accordion.ingredients`)
-  - How It's Made (`product.metafields.accordion.how_its_made`)
-  - Where It's Made (`product.metafields.accordion.where_its_made`)
-  - How To Use (`product.metafields.accordion.how_to_use`)
+  - Product Details (`product.metafields.accordion.product_details`);
+  - Ingredients (`product.metafields.accordion.ingredients`);
+  - How It's Made (`product.metafields.accordion.how_its_made`);
+  - Where It's Made (`product.metafields.accordion.where_its_made`);
+  - How To Use (`product.metafields.accordion.how_to_use`).
 
 ### Footer (`sections/footer-group.json`)
 - Using `sections/footer.liquid` (which is already included in this template), build the provided design for the footer.
