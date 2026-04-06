@@ -1,20 +1,10 @@
-{%- capture section_content -%}
-  {%- render 'utility.make-section-placeholder', filename: 'list-collections.liquid' -%}
-{%- endcapture -%}
-
-{%- render 'utility.make-section', section_content: section_content -%}
+{%- render 'utility.make-section-placeholder', filename: 'list-collections.liquid' -%}
 
 {%- schema -%}
 {
   "name": "Collections",
   "tag": "section",
   "settings": [],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Collections"
-    }
-  ],
   "enabled_on": {
     "templates": ["list-collections"]
   }
