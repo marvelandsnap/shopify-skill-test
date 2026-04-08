@@ -1,22 +1,9 @@
-{%- capture section_content -%}
-  {%- render 'utility.make-section-placeholder', filename: 'account.liquid', customers_template: true -%}
-{%- endcapture -%}
-
-{%- render 'utility.make-section', section_content: section_content -%}
+{%- render 'utility.make-section-placeholder', filename: 'account.liquid' -%}
 
 {%- schema -%}
 {
   "name": "Account",
   "tag": "section",
-  "settings": [],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Account"
-    }
-  ],
-  "enabled_on": {
-    "templates": ["customers/account"]
-  }
+  "settings": []
 }
 {%- endschema -%}

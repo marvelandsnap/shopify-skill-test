@@ -1,20 +1,10 @@
-{%- capture section_content -%}
-  {%- render 'utility.make-section-placeholder', filename: 'search.liquid' -%}
-{%- endcapture -%}
-
-{%- render 'utility.make-section', section_content: section_content -%}
+{%- render 'utility.make-section-placeholder', filename: 'search.liquid' -%}
 
 {%- schema -%}
 {
   "name": "Search",
   "tag": "section",
   "settings": [],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Search"
-    }
-  ],
   "enabled_on": {
     "templates": ["search"]
   }

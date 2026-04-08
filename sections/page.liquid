@@ -1,20 +1,10 @@
-{%- capture section_content -%}
-  {%- render 'utility.make-section-placeholder', filename: 'page.liquid' -%}
-{%- endcapture -%}
-
-{%- render 'utility.make-section', section_content: section_content -%}
+{%- render 'utility.make-section-placeholder', filename: 'page.liquid' -%}
 
 {%- schema -%}
 {
   "name": "Page",
   "tag": "section",
   "settings": [],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Page"
-    }
-  ],
   "enabled_on": {
     "templates": ["page"]
   }
