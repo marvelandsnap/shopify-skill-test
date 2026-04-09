@@ -26,7 +26,7 @@ Our [Marvel & Snap Shopify Skill Test](https://ms-skill-test.myshopify.com/) sho
 
 - Create functional, responsive, and standards-compliant Shopify collection and product templates from the provided design.
 - Demonstrate your overall knowledge of:
-  - Shopify theming and local development using using [Shopify CLI](https://shopify.dev/docs/api/shopify-cli);
+  - Shopify theming and local development using the [Shopify CLI](https://shopify.dev/docs/api/shopify-cli);
   - Writing valid, semantic, and accessible HTML;
   - Writing custom JavaScript using ES6 (`const`, `let`, `=>`, etc.) to accurately reproduce the provided design including interactivity;
   - Writing modern SCSS (e.g. using Flexbox, `clamp`, etc.), following [BEM](https://getbem.com/) naming conventions, using variables and at least one function/mixin, and using responsive design techniques;
