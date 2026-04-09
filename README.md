@@ -13,7 +13,7 @@ The test theme will contain the following packages:
 
 ## About The Design
 
-- Refer to this [Figma](https://www.figma.com/design/D0SMup9URKQcZH6s3TUb6x/M%26S---Developer-Skill-Test) for the complete design.
+- Refer to your provided Figma link for the complete design.
 - You will need to create a Figma account (if you do not already have one) to inspect the design. <strong>If you are prompted for a password, it is `marvelandsnap`.</strong>
 - We have already included the [Montserrat](https://fonts.google.com/specimen/Montserrat) font in our starter theme (via the Google Fonts API) and assigned it to Bootstrap's `$font-family-sans-serif` SCSS variable.
 
