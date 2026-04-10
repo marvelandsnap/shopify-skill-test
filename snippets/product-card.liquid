@@ -1,0 +1,44 @@
+{% doc %}
+  Renders a product card with image, sale badge, title, price, description, and link.
+
+  @param {object} product - The product object to render
+
+  @example
+  {% render 'product-card', product: product %}
+{% enddoc %}
+
+<article class="product-card">
+  <div class="product-card__image-wrapper">
+    {%- if product.compare_at_price > product.price -%}
+      <span class="product-card__badge">Sale</span>
+    {%- endif -%}
+
+    {%- if product.featured_image != blank -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: class: 'product-card__image', loading: 'lazy' }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'product-card__image product-card__image--placeholder' }}
+    {%- endif -%}
+  </div>
+
+  <div class="product-card__info">
+    <h3 class="product-card__title">{{ product.title }}</h3>
+
+    <div class="product-card__price">
+      <span class="product-card__price-current">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <s class="product-card__price-compare">{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+    </div>
+
+    {%- if product.description != blank -%}
+      <p class="product-card__description">{{ product.description | strip_html | truncate: 150 }}</p>
+    {%- endif -%}
+
+    <a href="{{ product.url }}" class="product-card__link" aria-label="View {{ product.title }}">
+      <svg class="product-card__link-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="40" height="40" rx="20" fill="#1F2937"/>
+        <path d="M26.2307 18.9291C26.8096 19.506 26.8116 20.4405 26.2366 21.0214L19.3642 27.958C19.0748 28.2504 18.6935 28.3966 18.3122 28.3966C17.9348 28.3966 17.5575 28.2534 17.269 27.9669C16.6872 27.391 16.6842 26.4535 17.2601 25.8717L23.0924 19.9842L17.2237 14.1342C16.6448 13.5573 16.6428 12.6187 17.2207 12.039C17.7976 11.4591 18.738 11.4581 19.3159 12.036L26.2307 18.9291Z" fill="white"/>
+      </svg>
+    </a>
+  </div>
+</article>

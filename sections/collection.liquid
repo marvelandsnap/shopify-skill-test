@@ -1,4 +1,28 @@
-{%- render 'utility.make-section-placeholder', filename: 'collection.liquid' -%}
+<div class="collection">
+  <div class="container-lg">
+    {%- comment -%}<h1 class="collection__title">{{ collection.title }}</h1>{%- endcomment -%}
+
+    {%- if collection.products.size > 0 -%}
+      <div class="collection__grid">
+        {%- for product in collection.products -%}
+          <div class="collection__grid-item">
+            {% render 'product-card', product: product %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%}
+      {%- if paginate.pages > 1 -%}
+        <nav class="collection__pagination" aria-label="Pagination">
+          {{ paginate | default_pagination: next: '&raquo;', previous: '&laquo;' }}
+        </nav>
+      {%- endif -%}
+      {%- endcomment -%}
+    {%- else -%}
+      <p class="collection__empty">This collection is empty.</p>
+    {%- endif -%}
+  </div>
+</div>
 
 {%- schema -%}
 {

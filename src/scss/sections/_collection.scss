@@ -1,0 +1,30 @@
+.collection {
+  padding: px-to-rem(48) 0;
+
+  &__title {
+    margin-bottom: px-to-rem(32);
+    font-size: clamp(#{px-to-rem(24)}, 4vw, #{px-to-rem(36)});
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: px-to-rem(32);
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    font-size: px-to-rem(18);
+    color: #666;
+  }
+}
