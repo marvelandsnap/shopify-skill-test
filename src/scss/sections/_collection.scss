@@ -1,0 +1,12 @@
+.collection-products {
+  padding-bottom: var(--collection-products-padding-bottom-mobile, #{px-to-rem(24)});
+  padding-top: var(--collection-products-padding-top-mobile, #{px-to-rem(24)});
+}
+
+@include media-breakpoint-up(lg) {
+  .collection-products {
+    padding-bottom: var(--collection-products-padding-bottom-desktop, #{px-to-rem(48)});
+    padding-top: var(--collection-products-padding-top-desktop, #{px-to-rem(48)});
+  }
+}
+

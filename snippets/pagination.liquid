@@ -1,0 +1,52 @@
+{%- if paginate.pages > 1 -%}
+  {%- assign pagination_current_label = paginate.current_page | append: '' -%}
+  <nav
+    class="pagination-pill"
+    role="navigation"
+    aria-label="{{ aria_label | default: 'Pagination' }}"
+  >
+    <div class="pagination-pill__track">
+      {%- capture pagination_pill_prev_body -%}
+        <span class="pagination-pill__control-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>Back</span>
+      {%- endcapture -%}
+      {%- if paginate.previous -%}
+        <a class="pagination-pill__control pagination-pill__control--prev" href="{{ paginate.previous.url }}">{{ pagination_pill_prev_body }}</a>
+      {%- else -%}
+        <span class="pagination-pill__control pagination-pill__control--prev pagination-pill__control--disabled">{{ pagination_pill_prev_body }}</span>
+      {%- endif -%}
+
+      <ol class="pagination-pill__pages" role="list">
+        {%- for part in paginate.parts -%}
+          <li class="pagination-pill__pages-item">
+            {%- if part.is_link -%}
+              <a class="pagination-pill__page pagination-pill__page--link" href="{{ part.url }}">{{ part.title }}</a>
+            {%- elsif part.title == pagination_current_label -%}
+              <span class="pagination-pill__page pagination-pill__page--current" aria-current="page">{{ part.title }}</span>
+            {%- else -%}
+              <span class="pagination-pill__page pagination-pill__page--gap">{{ part.title }}</span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+
+      {%- capture pagination_pill_next_body -%}
+        <span>Next</span>
+        <span class="pagination-pill__control-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      {%- endcapture -%}
+      {%- if paginate.next -%}
+        <a class="pagination-pill__control pagination-pill__control--next" href="{{ paginate.next.url }}">{{ pagination_pill_next_body }}</a>
+      {%- else -%}
+        <span class="pagination-pill__control pagination-pill__control--next pagination-pill__control--disabled">{{ pagination_pill_next_body }}</span>
+      {%- endif -%}
+    </div>
+  </nav>
+{%- endif -%}

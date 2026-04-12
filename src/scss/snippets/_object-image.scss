@@ -1,0 +1,17 @@
+.object-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.object-image--cover {
+  object-fit: cover;
+}
+
+.object-image--contain {
+  object-fit: contain;
+}
+
+.object-image--scale-down {
+  object-fit: scale-down;
+}

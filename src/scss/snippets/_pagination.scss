@@ -1,0 +1,113 @@
+.pagination-pill {
+  margin-top: px-to-rem(40);
+
+  &__track {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: px-to-rem(10);
+    justify-content: center;
+  }
+
+  &__control {
+    align-items: center;
+    background: #fff;
+    border-radius: px-to-rem(999);
+    color: #111827;
+    display: inline-flex;
+    font-size: px-to-rem(14);
+    font-weight: 600;
+    gap: px-to-rem(8);
+    justify-content: center;
+    line-height: 1;
+    min-height: px-to-rem(40);
+    padding: px-to-rem(10) px-to-rem(20);
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover:not(&--disabled) {
+      background: #f9fafb;
+      border-color: #d1d5db;
+      color: #111827;
+    }
+
+    &:focus-visible {
+      outline: px-to-rem(2) solid rgba(17, 24, 39, 0.35);
+      outline-offset: px-to-rem(2);
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+  }
+
+  &__control-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  &__pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: px-to-rem(10);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__pages-item {
+    display: flex;
+    margin: 0;
+  }
+
+  &__page {
+    align-items: center;
+    aspect-ratio: 1;
+    background: #fff;
+    border: px-to-rem(1) solid #e5e7eb;
+    border-radius: 50%;
+    color: #111827;
+    display: inline-flex;
+    font-size: px-to-rem(14);
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    min-height: px-to-rem(40);
+    min-width: px-to-rem(40);
+    padding: 0 px-to-rem(4);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &--link {
+      &:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        color: #111827;
+      }
+
+      &:focus-visible {
+        outline: px-to-rem(2) solid rgba(17, 24, 39, 0.35);
+        outline-offset: px-to-rem(2);
+      }
+    }
+
+    &--current {
+      background: #111827;
+      border-color: #111827;
+      color: #fff;
+      cursor: default;
+    }
+
+    &--gap {
+      border-color: #e5e7eb;
+      color: #9ca3af;
+      cursor: default;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{%- if product != blank -%}
+
+{%- assign price = product.price_min -%}
+{%- assign compare_at = product.compare_at_price_max -%}
+{%- assign is_on_sale = false -%}
+{%- if compare_at > price -%}
+  {%- assign is_on_sale = true -%}
+{%- endif -%}
+
+<p class="product-card__price">
+  {%- if product.price_varies -%}
+    <span class="product-card__price-current">From {{ price | money }}</span>
+  {%- else -%}
+    <span class="product-card__price-current">{{ price | money }}</span>
+  {%- endif -%}
+
+  {%- if is_on_sale -%}
+    <span class="product-card__price-compare">{{ compare_at | money }}</span>
+  {%- endif -%}
+</p>
+
+{%- endif -%}

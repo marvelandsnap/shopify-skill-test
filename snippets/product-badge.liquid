@@ -1,0 +1,19 @@
+{%- if product != blank and show_badge != false -%}
+
+{%- assign is_sold_out = false -%}
+{%- if product.available == false -%}
+  {%- assign is_sold_out = true -%}
+{%- endif -%}
+
+{%- assign is_on_sale = false -%}
+{%- if is_sold_out == false and product.compare_at_price_max > product.price_min -%}
+  {%- assign is_on_sale = true -%}
+{%- endif -%}
+
+{%- if is_sold_out -%}
+  <span class="product-card__badge product-card__badge--sold-out">Sold out</span>
+{%- elsif is_on_sale -%}
+  <span class="product-card__badge product-card__badge--sale">Sale</span>
+{%- endif -%}
+
+{%- endif -%}

@@ -1,8 +1,15 @@
 /* THEME VARIABLES ***********************************************************/
 
-// Add your own!
+// Colors
+$color-primary: #1F2937;
+$color-secondary: #66619e;
+$color-light: #fff;
+$color-bg-card: rgba(242, 242, 247, 0.5);
+$color-bg-image: #e8e6f6;
 
 /* BOOTSTRAP VARIABLES *******************************************************/
+
+$body-color: $color-primary;
 
 $spacer: px-to-rem(16);
 
@@ -29,3 +36,13 @@ $spacers: (
 $paragraph-margin-bottom: 1em;
 
 $font-family-sans-serif: 'Montserrat', sans-serif;
+
+$container-padding-x: $spacer * 3;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1410px
+);

@@ -1,0 +1,84 @@
+{%- if object_image != blank -%}
+
+{%- assign image_fit = fit | default: 'cover' -%}
+{%- unless image_fit == 'cover' or image_fit == 'contain' or image_fit == 'scale-down' -%}
+  {%- assign image_fit = 'cover' -%}
+{%- endunless -%}
+
+{%- assign image_alt = alt | default: object_image.alt | default: '' -%}
+{%- assign image_loading = 'lazy' -%}
+{%- if default_load -%}
+  {%- assign image_loading = 'eager' -%}
+{%- endif -%}
+
+{%- assign image_src_width = src_width | default: 800 -%}
+{%- if image_src_width > object_image.width -%}
+  {%- assign image_src_width = object_image.width -%}
+{%- endif -%}
+
+{%- capture widths -%}
+  {%- if object_image.width > 165 -%}165,{%- endif -%}
+  {%- if object_image.width > 240 -%}240,{%- endif -%}
+  {%- if object_image.width > 360 -%}360,{%- endif -%}
+  {%- if object_image.width > 540 -%}540,{%- endif -%}
+  {%- if object_image.width > 720 -%}720,{%- endif -%}
+  {%- if object_image.width > 900 -%}900,{%- endif -%}
+  {%- if object_image.width > 1080 -%}1080,{%- endif -%}
+  {%- if object_image.width > 1296 -%}1296,{%- endif -%}
+  {%- if object_image.width > 1512 -%}1512,{%- endif -%}
+  {%- if object_image.width > 1728 -%}1728,{%- endif -%}
+  {%- if object_image.width > 1950 -%}1950,{%- endif -%}
+  {%- if object_image.width > 2100 -%}2100,{%- endif -%}
+  {%- if object_image.width > 3000 -%}3000,{%- endif -%}
+  {%- if object_image.width > 3750 -%}3750,{%- endif -%}
+  {%- if object_image.width > 4100 -%}4100,{%- endif -%}
+  {{ object_image.width }}
+{%- endcapture -%}
+
+{%- assign image_sizes = sizes | default: '(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw' -%}
+
+{%- capture image_class -%}object-image object-image--{{ image_fit }}{% if class != blank %} {{ class }}{% endif %}{%- endcapture -%}
+
+{%- capture image_style -%}
+  {%- if object_image.presentation.focal_point != blank -%}
+    object-position: {{ object_image.presentation.focal_point }};
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture extra_attributes -%}
+  decoding="async"
+  {%- if default_load -%} fetchpriority="high"{%- endif -%}
+  {{- attributes -}}
+{%- endcapture -%}
+
+{%- if width != blank and height != blank -%}
+  {{
+    object_image
+    | image_url: width: width
+    | image_tag:
+      widths: widths,
+      sizes: image_sizes,
+      class: image_class,
+      loading: image_loading,
+      alt: image_alt,
+      width: width,
+      height: height,
+      style: image_style,
+      attributes: extra_attributes
+  }}
+{%- else -%}
+  {{
+    object_image
+    | image_url: width: image_src_width
+    | image_tag:
+      widths: widths,
+      sizes: image_sizes,
+      class: image_class,
+      loading: image_loading,
+      alt: image_alt,
+      style: image_style,
+      attributes: extra_attributes
+  }}
+{%- endif -%}
+
+{%- endif -%}

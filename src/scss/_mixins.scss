@@ -1,0 +1,18 @@
+/* TEXT ATTRIBUTES ********************************************************/
+@mixin h3-attributes {
+  font-size: px-to-rem(16);
+  font-weight: 700;
+  letter-spacing: px-to-rem(-0.48);
+  line-height: 1.1;
+
+  @include media-breakpoint-up(sm) {
+    font-size: px-to-rem(20);
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: px-to-rem(24);
+  }
+}
+
+
+/* ************************************************************************/

@@ -1,10 +1,116 @@
-{%- render 'utility.make-section-placeholder', filename: 'collection.liquid' -%}
+<div
+  class="collection-products"
+  style="
+    --collection-products-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 24 }}px;
+    --collection-products-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 24 }}px;
+    --collection-products-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 48 }}px;
+    --collection-products-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 48 }}px;
+  "
+>
+  <div class="container-lg">
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      <div class="row g-3 g-lg-5">
+        {%- for product in collection.products -%}
+          <div class="col-6 col-md-4 d-flex">
+            {%- render
+              'product-card',
+              product: product,
+              show_badge: section.settings.show_badge,
+              show_description: section.settings.show_description,
+              description_lines: section.settings.description_lines,
+              show_link_icon: section.settings.show_link_icon
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endpaginate -%}
+  </div>
+</div>
 
 {%- schema -%}
 {
   "name": "Collection",
   "tag": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show sale / sold out badge",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "description_lines",
+      "label": "Description lines",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_link_icon",
+      "label": "Show link icon",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
   "blocks": [],
   "presets": [
     {
