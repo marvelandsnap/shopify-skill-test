@@ -1,32 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product": {
       "type": "product",
       "blocks": {
-        "title": { "type": "title" },
-        "price": { "type": "price" },
-        "description": { "type": "description" },
-        "product_form": { "type": "product_form" },
-        "accordion_zone": { "type": "accordion_zone" },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "product_form": {
+          "type": "product_form",
+          "settings": {}
+        },
+        "accordion_zone": {
+          "type": "accordion_zone",
+          "settings": {}
+        },
         "accordion_item_1": {
           "type": "accordion_item",
-          "settings": { "heading": "Product details" }
+          "settings": {
+            "heading": "Product details",
+            "content": "{{ product.metafields.accordion.product_details | metafield_tag }}"
+          }
         },
         "accordion_item_2": {
           "type": "accordion_item",
-          "settings": { "heading": "Ingredients" }
+          "settings": {
+            "heading": "Ingredients",
+            "content": "{{ product.metafields.accordion.ingredients | metafield_tag }}"
+          }
         },
         "accordion_item_3": {
           "type": "accordion_item",
-          "settings": { "heading": "How it's made" }
+          "settings": {
+            "heading": "How it's made",
+            "content": "{{ product.metafields.accordion.how_its_made | metafield_tag }}"
+          }
         },
         "accordion_item_4": {
           "type": "accordion_item",
-          "settings": { "heading": "Where it's made" }
+          "settings": {
+            "heading": "Where it's made",
+            "content": "{{ product.metafields.accordion.where_its_made | metafield_tag }}"
+          }
         },
         "accordion_item_5": {
           "type": "accordion_item",
-          "settings": { "heading": "How to use" }
+          "settings": {
+            "heading": "How to use",
+            "content": "{{ product.metafields.accordion.how_to_use | metafield_tag }}"
+          }
         }
       },
       "block_order": [
@@ -40,7 +79,8 @@
         "accordion_item_3",
         "accordion_item_4",
         "accordion_item_5"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
