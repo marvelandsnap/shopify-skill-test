@@ -1,0 +1,41 @@
+.product {
+  padding: px-to-rem(24) 0;
+}
+
+.product__main {
+  display: flex;
+  flex-direction: column;
+  gap: px-to-rem(16);
+}
+
+.product__title {
+  @include h1-attributes;
+  margin: 0;
+}
+
+.product__price {
+  margin: 0;
+}
+
+.product__price-current {
+  @include price-current;
+}
+
+.product__price-compare {
+  @include price-compare;
+}
+
+.product__description {
+  margin: 0;
+}
+
+@include media-breakpoint-up(lg) {
+  .product {
+    padding: px-to-rem(40) 0;
+  }
+
+  .product__main {
+    gap: px-to-rem(24);
+  }
+}
+

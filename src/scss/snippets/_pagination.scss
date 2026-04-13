@@ -10,31 +10,22 @@
   }
 
   &__control {
-    align-items: center;
-    background: #fff;
+    @include pagination-pill-surface;
     border-radius: px-to-rem(999);
-    color: #111827;
     display: inline-flex;
-    font-size: px-to-rem(14);
-    font-weight: 600;
     gap: px-to-rem(8);
     justify-content: center;
-    line-height: 1;
     min-height: px-to-rem(40);
     padding: px-to-rem(10) px-to-rem(20);
     text-decoration: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
     &:hover:not(&--disabled) {
-      background: #f9fafb;
-      border-color: #d1d5db;
-      color: #111827;
+      background: $color-surface-hover;
+      border-color: $color-border-strong;
+      color: $color-primary;
     }
 
-    &:focus-visible {
-      outline: px-to-rem(2) solid rgba(17, 24, 39, 0.35);
-      outline-offset: px-to-rem(2);
-    }
+    @include focus-ring($color-primary, 0.35);
 
     &--disabled {
       cursor: not-allowed;
@@ -65,47 +56,38 @@
   }
 
   &__page {
-    align-items: center;
+    @include pagination-pill-surface;
     aspect-ratio: 1;
-    background: #fff;
-    border: px-to-rem(1) solid #e5e7eb;
+    border: px-to-rem(1) solid $color-border-muted;
     border-radius: 50%;
-    color: #111827;
     display: inline-flex;
-    font-size: px-to-rem(14);
-    font-weight: 600;
     justify-content: center;
-    line-height: 1;
     min-height: px-to-rem(40);
     min-width: px-to-rem(40);
     padding: 0 px-to-rem(4);
     text-align: center;
     text-decoration: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
     &--link {
       &:hover {
-        background: #f9fafb;
-        border-color: #d1d5db;
-        color: #111827;
+        background: $color-surface-hover;
+        border-color: $color-border-strong;
+        color: $color-primary;
       }
 
-      &:focus-visible {
-        outline: px-to-rem(2) solid rgba(17, 24, 39, 0.35);
-        outline-offset: px-to-rem(2);
-      }
+      @include focus-ring($color-primary, 0.35);
     }
 
     &--current {
-      background: #111827;
-      border-color: #111827;
-      color: #fff;
+      background: $color-primary;
+      border-color: $color-primary;
+      color: $color-light;
       cursor: default;
     }
 
     &--gap {
-      border-color: #e5e7eb;
-      color: #9ca3af;
+      border-color: $color-border-muted;
+      color: $color-text-muted;
       cursor: default;
       font-weight: 500;
     }

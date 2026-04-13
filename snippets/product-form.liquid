@@ -1,0 +1,68 @@
+{%- if product != blank -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+  <product-form class="product-form" data-product-form data-section-id="{{ section_id }}" {{ block.shopify_attributes }}>
+    {%- form 'product', product, class: 'product-form__form' -%}
+      <label class="product-form__label visually-hidden" for="ProductVariantSelect-{{ section_id }}">
+        Variant
+      </label>
+      <variant-selector class="variant-selector" data-variant-selector>
+        <select
+          id="ProductVariantSelect-{{ section_id }}"
+          class="product-form__select form-select"
+          name="id"
+          data-variant-select
+        >
+        {%- for variant in product.variants -%}
+          <option
+            value="{{ variant.id }}"
+            {% if variant.id == current_variant.id %}selected{% endif %}
+            {% unless variant.available %}disabled{% endunless %}
+            data-available="{{ variant.available }}"
+            data-price="{{ variant.price | money }}"
+            data-compare-at-price="{{ variant.compare_at_price | money }}"
+            data-has-compare-at="{% if variant.compare_at_price > variant.price %}true{% else %}false{% endif %}"
+          >
+            {{- variant.title -}}
+          </option>
+        {%- endfor -%}
+        </select>
+      </variant-selector>
+
+      <label class="product-form__label visually-hidden" for="ProductQuantity-{{ section_id }}">
+        Quantity
+      </label>
+      <quantity-selector class="product-form__quantity-wrap">
+        <button class="product-form__qty-btn" type="button" data-qty-step="-1" aria-label="Decrease quantity">
+          -
+        </button>
+        <input
+          id="ProductQuantity-{{ section_id }}"
+          class="product-form__quantity"
+          type="number"
+          name="quantity"
+          min="1"
+          step="1"
+          value="1"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          aria-label="Quantity"
+        >
+        <button class="product-form__qty-btn" type="button" data-qty-step="1" aria-label="Increase quantity">
+          +
+        </button>
+      </quantity-selector>
+
+      <button
+        class="product-form__submit btn btn-primary"
+        type="submit"
+        name="add"
+        {% unless current_variant.available %}disabled{% endunless %}
+        data-product-atc
+      >
+        ADD TO CART
+      </button>
+    {%- endform -%}
+  </product-form>
+{%- endif -%}
+

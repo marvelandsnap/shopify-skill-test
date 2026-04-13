@@ -38,32 +38,6 @@
     }
   }
 
-  &__badge {
-    align-items: center;
-    border-radius: px-to-rem(999);
-    display: inline-flex;
-    font-size: px-to-rem(12);
-    font-weight: 700;
-    left: px-to-rem(10);
-    letter-spacing: 0.05em;
-    line-height: 1.1;
-    padding: px-to-rem(4) px-to-rem(8);
-    position: absolute;
-    text-transform: uppercase;
-    top: px-to-rem(10);
-    z-index: 1;
-
-    &--sale {
-      background: $color-secondary;
-      color: $color-light;
-    }
-
-    &--sold-out {
-      background: rgba(31, 41, 55, 0.75);
-      color: $color-light;
-    }
-  }
-
   &__content {
     display: flex;
     flex: 1;
@@ -82,13 +56,11 @@
   }
 
   &__price-current {
-    font-weight: 700;
+    @include price-current;
   }
 
   &__price-compare {
-    margin-left: px-to-rem(8);
-    text-decoration: line-through;
-    text-decoration-thickness: px-to-rem(1);
+    @include price-compare;
   }
 
   &__description {
@@ -105,18 +77,11 @@
   }
 
   &__action-icon {
-    align-items: center;
-    background: $color-primary;
-    border-radius: 50%;
-    color: $color-light;
-    display: inline-flex;
-    justify-content: center;
     height: px-to-rem(24);
     width: px-to-rem(24);
 
     svg {
       width: px-to-rem(6);
-      height: auto;
       transform: translateX(1px);
     }
   }
@@ -134,11 +99,6 @@
         width: px-to-rem(10);
         transform: translateX(2px);
       }
-    }
-
-    &__badge {
-      font-size: px-to-rem(14);
-      padding: px-to-rem(8) px-to-rem(16);
     }
   }
 

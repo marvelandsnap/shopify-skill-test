@@ -1,4 +1,15 @@
 /* TEXT ATTRIBUTES ********************************************************/
+@mixin h1-attributes {
+  font-size: px-to-rem(32);
+  font-weight: 700;
+  letter-spacing: px-to-rem(-0.8);
+  line-height: 1.1;
+
+  @include media-breakpoint-up(lg) {
+    font-size: px-to-rem(40);
+  }
+}
+
 @mixin h3-attributes {
   font-size: px-to-rem(16);
   font-weight: 700;
@@ -14,5 +25,36 @@
   }
 }
 
+@mixin text-label-uppercase {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@mixin price-current {
+  font-weight: 700;
+}
+
+@mixin price-compare {
+  margin-left: px-to-rem(8);
+  text-decoration: line-through;
+  text-decoration-thickness: px-to-rem(1);
+}
+
+@mixin focus-ring($color: $color-primary, $alpha: 1) {
+  &:focus-visible {
+    outline: px-to-rem(2) solid color-fade($color, $alpha);
+    outline-offset: px-to-rem(2);
+  }
+}
+
+@mixin pagination-pill-surface {
+  align-items: center;
+  background: $color-light;
+  color: $color-primary;
+  font-size: px-to-rem(14);
+  font-weight: 600;
+  line-height: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
 
 /* ************************************************************************/

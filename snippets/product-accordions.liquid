@@ -1,0 +1,61 @@
+{%- if product != blank -%}
+  <product-accordion-group
+    class="product-accordions"
+    data-product-accordions
+    data-section-id="{{ section_id }}"
+    {{ block.shopify_attributes }}
+  >
+    <div class="product-accordions__list">
+      {%- assign accordion_blocks = blocks | where: 'type', 'accordion_item' -%}
+      {%- assign rendered_index = 0 -%}
+      {%- for b in accordion_blocks -%}
+        {%- if b.settings.content == blank -%}{%- continue -%}{%- endif -%}
+
+        {%- assign rendered_index = rendered_index | plus: 1 -%}
+
+        {%- capture panel_id -%}ProductAccordionPanel-{{ section_id }}-{{ b.id }}{%- endcapture -%}
+        {%- capture button_id -%}ProductAccordionButton-{{ section_id }}-{{ b.id }}{%- endcapture -%}
+
+        {%- assign open = false -%}
+        {%- if rendered_index == 1 -%}
+          {%- assign open = true -%}
+        {%- endif -%}
+
+        <div class="product-accordions__item" {{ b.shopify_attributes }}>
+          <h3 class="product-accordions__heading">
+            <button
+              id="{{ button_id }}"
+              class="product-accordions__toggle"
+              type="button"
+              data-accordion-trigger
+              aria-expanded="{% if open %}true{% else %}false{% endif %}"
+              aria-controls="{{ panel_id }}"
+            >
+              <span class="product-accordions__toggle-text">{{ b.settings.heading }}</span>
+              <span class="product-accordions__chevron" aria-hidden="true">
+                <svg width="9" height="7" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.60697 6.06074L5.58425 5.00008L8.72512 1.06054L7.69472 0.0608636L4.55062 3.87826L0.977271 0L0 1.06066L3.57649 5.06099L4.60697 6.06074Z" fill="currentColor"/>
+                </svg>
+              </span>
+            </button>
+          </h3>
+
+          <div
+            id="{{ panel_id }}"
+            class="product-accordions__panel"
+            data-accordion-content
+            role="region"
+            aria-labelledby="{{ button_id }}"
+            {% if open %}data-open{% endif %}
+            {% unless open %}hidden{% endunless %}
+          >
+            <div class="product-accordions__panel-inner">
+              {{ b.settings.content }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </product-accordion-group>
+{%- endif -%}
+

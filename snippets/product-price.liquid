@@ -1,0 +1,23 @@
+{%- if product != blank -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+  <p
+    class="product__price"
+    data-product-price
+    data-section-id="{{ section_id }}"
+    {{ block.shopify_attributes }}
+  >
+    <span class="product__price-current" data-product-price-current>
+      {{- current_variant.price | money -}}
+    </span>
+
+    {%- if current_variant.compare_at_price > current_variant.price -%}
+      <span class="product__price-compare" data-product-price-compare>
+        {{- current_variant.compare_at_price | money -}}
+      </span>
+    {%- else -%}
+      <span class="product__price-compare d-none" data-product-price-compare></span>
+    {%- endif -%}
+  </p>
+{%- endif -%}
+

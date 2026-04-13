@@ -1,0 +1,20 @@
+.icon-button {
+  align-items: center;
+  background: $color-primary;
+  border-radius: 50%;
+  color: $color-light;
+  display: inline-flex;
+  height: px-to-rem(40);
+  justify-content: center;
+  width: px-to-rem(40);
+
+  svg {
+    height: auto;
+    width: px-to-rem(10);
+  }
+
+  &--left svg {
+    transform: rotate(180deg);
+  }
+}
+

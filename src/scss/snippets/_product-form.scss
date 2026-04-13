@@ -1,0 +1,107 @@
+.product-form {
+  &__form {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: px-to-rem(10);
+  }
+
+  &__select,
+  &__quantity-wrap,
+  &__submit {
+    border-radius: px-to-rem(8);
+  }
+
+  .variant-selector {
+    display: flex;
+    width: 100%;
+
+    .product-form__select {
+      border: 1px solid $color-primary;
+      border-radius: px-to-rem(8);
+      font-weight: 500;
+      padding: px-to-rem(10) px-to-rem(48) px-to-rem(10) px-to-rem(24);
+      width: 100%;
+    }
+  }
+
+  &__quantity-wrap {
+    align-items: center;
+    border: 1px solid $color-primary;
+    display: inline-flex;
+    gap: px-to-rem(24);
+    justify-content: space-between;
+    overflow: hidden;
+    padding: px-to-rem(12) px-to-rem(24);
+    width: 100%;
+  }
+
+  &__qty-btn {
+    background: transparent;
+    border: 0;
+    color: $color-primary;
+    font-size: px-to-rem(20);
+    font-weight: 600;
+    line-height: px-to-rem(18);
+    padding: 0;
+
+    @include focus-ring;
+  }
+
+  &__quantity {
+    appearance: textfield;
+    background: transparent;
+    border: 0;
+    color: $color-primary;
+    font-size: px-to-rem(16);
+    font-weight: 600;
+    line-height: px-to-rem(18);
+    padding: 0;
+    text-align: center;
+    width: px-to-rem(24);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__submit {
+    background: $color-tertiary;
+    border: 1px solid $color-tertiary;
+    border-radius: px-to-rem(8);
+    font-weight: 700;
+    letter-spacing: px-to-rem(-0.48);
+    line-height: px-to-rem(18);
+    padding: px-to-rem(12) px-to-rem(24);
+    text-transform: uppercase;
+    width: 100%;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background: color-fade($color-tertiary, 0.75);
+      border-color: color-fade($color-tertiary, 0.75);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .product-form {
+    .variant-selector {
+      width: auto;
+    }
+
+    &__quantity-wrap {
+      width: auto;
+    }
+
+    &__submit {
+      width: auto;
+    }
+  }
+}

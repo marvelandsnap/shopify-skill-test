@@ -1,7 +1,46 @@
 {
   "sections": {
     "product": {
-      "type": "product"
+      "type": "product",
+      "blocks": {
+        "title": { "type": "title" },
+        "price": { "type": "price" },
+        "description": { "type": "description" },
+        "product_form": { "type": "product_form" },
+        "accordion_zone": { "type": "accordion_zone" },
+        "accordion_item_1": {
+          "type": "accordion_item",
+          "settings": { "heading": "Product details" }
+        },
+        "accordion_item_2": {
+          "type": "accordion_item",
+          "settings": { "heading": "Ingredients" }
+        },
+        "accordion_item_3": {
+          "type": "accordion_item",
+          "settings": { "heading": "How it's made" }
+        },
+        "accordion_item_4": {
+          "type": "accordion_item",
+          "settings": { "heading": "Where it's made" }
+        },
+        "accordion_item_5": {
+          "type": "accordion_item",
+          "settings": { "heading": "How to use" }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "description",
+        "product_form",
+        "accordion_zone",
+        "accordion_item_1",
+        "accordion_item_2",
+        "accordion_item_3",
+        "accordion_item_4",
+        "accordion_item_5"
+      ]
     }
   },
   "order": [

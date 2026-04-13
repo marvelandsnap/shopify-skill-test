@@ -1,0 +1,9 @@
+{%- assign dir = direction | default: 'right' -%}
+{%- capture classes -%}icon-button{% if dir == 'left' %} icon-button--left{% endif %}{% if class != blank %} {{ class }}{% endif %}{%- endcapture -%}
+
+<span class="{{ classes }}" aria-hidden="true">
+  <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.44228 7.32581C10.0212 7.90271 10.0231 8.8372 9.44821 9.41805L2.57582 16.3547C2.28638 16.6471 1.90507 16.7933 1.52377 16.7933C1.14641 16.7933 0.769059 16.65 0.48061 16.3635C-0.101227 15.7876 -0.10419 14.8502 0.47172 14.2683L6.30402 8.38082L0.435268 2.53084C-0.143605 1.95395 -0.14558 1.0154 0.432305 0.435638C1.0092 -0.144223 1.94962 -0.145211 2.52751 0.432674L9.44228 7.32581Z" fill="white"/>
+  </svg>
+</span>
+

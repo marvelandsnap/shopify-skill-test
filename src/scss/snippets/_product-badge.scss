@@ -1,0 +1,30 @@
+.product-badge {
+  @include text-label-uppercase;
+  align-items: center;
+  border-radius: px-to-rem(999);
+  display: inline-flex;
+  font-size: px-to-rem(12);
+  font-weight: 700;
+  left: px-to-rem(10);
+  line-height: 1.1;
+  padding: px-to-rem(4) px-to-rem(8);
+  position: absolute;
+  top: px-to-rem(10);
+  z-index: 1;
+
+  &--sale {
+    background: $color-secondary;
+    color: $color-light;
+  }
+
+  &--sold-out {
+    background: color-fade($color-primary, 0.75);
+    color: $color-light;
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: px-to-rem(14);
+    padding: px-to-rem(8) px-to-rem(16);
+  }
+}
+
