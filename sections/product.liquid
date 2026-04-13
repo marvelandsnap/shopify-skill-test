@@ -1,4 +1,142 @@
-{%- render 'utility.make-section-placeholder', filename: 'product.liquid' -%}
+<div class="product" data-product-section>
+  <div class="container-lg">
+    <div class="row gx-5">
+      {%- comment -%} Gallery Column {%- endcomment -%}
+      <div class="col-12 col-lg-6">
+        <div class="product__gallery">
+          {%- if product.compare_at_price > product.price -%}
+            <span class="product__badge">Sale</span>
+          {%- endif -%}
+
+          <div class="product__gallery-main" data-product-gallery-main>
+            {%- for image in product.images -%}
+              <div class="product__gallery-slide">
+                {{ image | image_url: width: 800 | image_tag: class: 'product__gallery-image' }}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if product.images.size > 1 -%}
+            <div class="product__gallery-thumbs" data-product-gallery-thumbs>
+              {%- for image in product.images -%}
+                <div class="product__gallery-thumb">
+                  {{ image | image_url: width: 200 | image_tag: class: 'product__gallery-thumb-image' }}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} Product Info Column {%- endcomment -%}
+      <div class="col-12 col-lg-6">
+        <div class="product__info">
+          <h1 class="product__title">{{ product.title }}</h1>
+
+          <div class="product__price" data-product-price>
+            <span class="product__price-current" data-product-price-current>
+              {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+            {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+              <s class="product__price-compare" data-product-price-compare>
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+              </s>
+            {%- endif -%}
+          </div>
+
+          {%- if product.description != blank -%}
+            <div class="product__description">{{ product.description }}</div>
+          {%- endif -%}
+
+          {%- form 'product', product, data-product-form: '' -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-variant-id>
+
+            {%- if product.has_only_default_variant == false -%}
+              <div class="product__variant-select">
+                <label class="visually-hidden" for="product-variant-select">Variant</label>
+                <select
+                  id="product-variant-select"
+                  class="product__select"
+                  data-variant-select
+                >
+                  {%- for variant in product.variants -%}
+                    <option
+                      value="{{ variant.id }}"
+                      data-price="{{ variant.price }}"
+                      data-compare-price="{{ variant.compare_at_price }}"
+                      {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                      {% unless variant.available %}disabled{% endunless %}
+                    >
+                      {{ variant.title }}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </div>
+            {%- endif -%}
+
+            <div class="product__quantity">
+              <button type="button" class="product__quantity-btn" data-quantity-minus aria-label="Decrease quantity">-</button>
+              <input
+                type="number"
+                name="quantity"
+                class="product__quantity-input"
+                value="1"
+                min="1"
+                aria-label="Quantity"
+                data-quantity-input
+              >
+              <button type="button" class="product__quantity-btn" data-quantity-plus aria-label="Increase quantity">+</button>
+            </div>
+
+            <button type="submit" class="product__add-to-cart">
+              Add to Cart
+            </button>
+          {%- endform -%}
+
+          {%- comment -%} Accordions - set order/metafields{%- endcomment -%}
+          {%- assign accordion_keys = 'product_details,ingredients,how_its_made,where_its_made,how_to_use' | split: ',' -%}
+          <div class="product__accordions accordion" id="product-accordions">
+            {%- for key in accordion_keys -%}
+              {%- assign metafield = product.metafields.accordion[key] -%}
+
+              {%- if metafield != blank -%}
+                {%- assign accordion_title = key | replace: '_', ' ' -%}
+                <div class="accordion-item product__accordion-item">
+                  <h2 class="accordion-header" id="accordion-heading-{{ key }}">
+                    <button
+                      class="accordion-button product__accordion-btn{% unless forloop.first %} collapsed{% endunless %}"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#accordion-collapse-{{ key }}"
+                      aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                      aria-controls="accordion-collapse-{{ key }}"
+                    >
+                      {{ accordion_title }}
+                    </button>
+                  </h2>
+                  <div
+                    id="accordion-collapse-{{ key }}"
+                    class="accordion-collapse collapse{% if forloop.first %} show{% endif %}"
+                    aria-labelledby="accordion-heading-{{ key }}"
+                    data-bs-parent="#product-accordions"
+                  >
+                    <div class="accordion-body product__accordion-body">
+                      {{ metafield | metafield_tag }}
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" data-product-json>
+  {{ product | json }}
+</script>
 
 {%- schema -%}
 {

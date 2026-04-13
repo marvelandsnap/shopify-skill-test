@@ -6,4 +6,4 @@ import './modules/slick.js';
 
 /* THEME *********************************************************************/
 
-// Add your own!
+import './modules/product.js';
