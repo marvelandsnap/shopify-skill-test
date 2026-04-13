@@ -1,14 +1,81 @@
-<div class="bg-primary text-light py-4">
+{%- liquid
+  assign terms_href = section.settings.terms_url
+  if terms_href == blank and shop.terms_of_service
+    assign terms_href = shop.terms_of_service.url
+  endif
+
+  assign privacy_href = section.settings.privacy_url
+  if privacy_href == blank and shop.privacy_policy
+    assign privacy_href = shop.privacy_policy.url
+  endif
+-%}
+
+<footer class="footer-site" role="contentinfo">
   <div class="container-lg">
-    <code class="h5 m-0 text-light">footer.liquid</code>
+    <div class="footer-site__inner">
+      <p class="footer-site__copyright">
+        {%- if section.settings.copyright_override != blank -%}
+          {{ section.settings.copyright_override }}
+        {%- else -%}
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+        {%- endif -%}
+      </p>
+
+      <p class="footer-site__meta">
+        <span class="footer-site__reserved">{{ section.settings.rights_reserved_text | default: 'All rights reserved.' }}</span>
+        {%- if terms_href != blank -%}
+          <a class="footer-site__link" href="{{ terms_href }}">{{ section.settings.terms_label | default: 'Terms and Conditions' }}</a>
+        {%- endif -%}
+        {%- if privacy_href != blank -%}
+          <a class="footer-site__link" href="{{ privacy_href }}">{{ section.settings.privacy_label | default: 'Privacy Policy' }}</a>
+        {%- endif -%}
+      </p>
+    </div>
   </div>
-</div>
+</footer>
 
 {%- schema -%}
 {
   "name": "Footer",
   "class": "mt-auto",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright_override",
+      "label": "Copyright text (optional)",
+      "info": "Leave blank to show © current year and your store name."
+    },
+    {
+      "type": "text",
+      "id": "rights_reserved_text",
+      "label": "Rights reserved text",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "Terms and conditions URL",
+      "info": "Leave blank to use your store’s Terms of service policy (Settings → Policies)."
+    },
+    {
+      "type": "text",
+      "id": "terms_label",
+      "label": "Terms link label",
+      "default": "Terms and Conditions"
+    },
+    {
+      "type": "url",
+      "id": "privacy_url",
+      "label": "Privacy policy URL",
+      "info": "Leave blank to use your store’s Privacy policy (Settings → Policies)."
+    },
+    {
+      "type": "text",
+      "id": "privacy_label",
+      "label": "Privacy link label",
+      "default": "Privacy Policy"
+    }
+  ],
   "enabled_on": {
     "groups": ["footer"]
   }
