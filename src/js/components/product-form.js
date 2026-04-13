@@ -32,7 +32,6 @@ export class ProductForm extends HTMLElement {
       });
 
       const payload = await res.json().catch(() => ({}));
-      console.log(payload);
       if (!res.ok) {
         throw new Error(payload?.description || payload?.message || 'Failed to add to cart');
       }

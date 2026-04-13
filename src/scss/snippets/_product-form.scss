@@ -69,6 +69,7 @@
 
   &__submit {
     background: $color-tertiary;
+    color: $color-light;
     border: 1px solid $color-tertiary;
     border-radius: px-to-rem(8);
     font-weight: 700;

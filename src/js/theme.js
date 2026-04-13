@@ -7,4 +7,5 @@ import './modules/product.js';
 
 /* THEME *********************************************************************/
 
-// Add your own!
+import './components/cart-count.js';
+import './components/mobile-nav-drawer.js';

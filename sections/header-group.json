@@ -3,10 +3,18 @@
   "name": "Header Group",
   "sections": {
     "navbar": {
-      "type": "navbar"
+      "type": "navbar",
+      "blocks": {
+        "link_shop_all": {
+          "type": "link",
+          "settings": {
+            "label": "Shop All",
+            "url": "/collections/all"
+          }
+        }
+      },
+      "block_order": ["link_shop_all"]
     }
   },
-  "order": [
-    "navbar"
-  ]
+  "order": ["navbar"]
 }

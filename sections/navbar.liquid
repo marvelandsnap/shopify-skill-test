@@ -1,13 +1,157 @@
-<nav id="navbar" class="navbar navbar-expand bg-primary py-4" data-bs-theme="dark">
+{%- liquid
+  assign cart_count = cart.item_count
+-%}
+
+<header class="navbar-marvel">
   <div class="container-lg">
-    <code class="h5 m-0 text-light">navbar.liquid</code>
+    <div class="navbar-marvel__inner">
+      <a class="navbar-marvel__logo" href="{{ routes.root_url }}">
+        <span class="visually-hidden">{{ shop.name }}</span>
+        {%- render 'logo-marvel-snap' -%}
+      </a>
+
+      <div class="navbar-marvel__actions">
+        <mobile-nav-drawer>
+          <button
+            type="button"
+            class="btn btn-link navbar-marvel__toggle border-0 p-0 text-decoration-none"
+            data-mobile-nav-open
+            aria-expanded="false"
+            aria-controls="NavbarMenu-{{ section.id }}"
+          >
+            <span class="visually-hidden">{{ 'navbar.open_menu' | t }}</span>
+            {%- render 'icon-menu', class: 'navbar-marvel__toggle-icon' -%}
+          </button>
+
+          <div class="navbar-marvel__drawer-root" data-mobile-nav-root>
+            <div
+              class="navbar-marvel__backdrop"
+              data-mobile-nav-close
+              role="presentation"
+              tabindex="-1"
+            ></div>
+
+            <div class="navbar-marvel__sheet">
+              <div class="navbar-marvel__sheet-head">
+                <p class="navbar-marvel__sheet-title" id="NavbarMenuLabel-{{ section.id }}">
+                  {{ 'navbar.menu_title' | t }}
+                </p>
+                <button
+                  type="button"
+                  class="btn btn-link navbar-marvel__close border-0 p-0 text-decoration-none"
+                  data-mobile-nav-close
+                >
+                  {%- render 'icon-close' -%}
+                  <span class="visually-hidden">{{ 'navbar.close_menu' | t }}</span>
+                </button>
+              </div>
+
+              <nav
+                id="NavbarMenu-{{ section.id }}"
+                class="navbar-marvel__nav"
+                aria-labelledby="NavbarMenuLabel-{{ section.id }}"
+              >
+                {%- if section.blocks.size > 0 -%}
+                  <ul class="navbar-marvel__list" role="list">
+                    {%- for block in section.blocks -%}
+                      {%- if block.type == 'link' -%}
+                        {%- liquid
+                          assign nav_href = block.settings.url | default: routes.all_products_collection_url
+                          assign nav_is_current = false
+                          if nav_href == request.path
+                            assign nav_is_current = true
+                          endif
+                        -%}
+                        <li {{ block.shopify_attributes }}>
+                          <a
+                            href="{{ nav_href }}"
+                            class="navbar-marvel__link{% if nav_is_current %} is-active{% endif %}"
+                            {% if nav_is_current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ block.settings.label }}
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                {%- else -%}
+                  <p class="navbar-marvel__empty small text-muted mb-0">
+                    {{ 'navbar.links_empty' | t }}
+                  </p>
+                {%- endif -%}
+              </nav>
+            </div>
+          </div>
+        </mobile-nav-drawer>
+
+        <cart-count>
+          <a href="{{ routes.cart_url }}" class="cart-link">
+            {%- render 'icon-cart', class: 'cart-link__icon' -%}
+            <span
+              class="cart-link__badge"
+              {% if cart_count == 0 %}
+                hidden
+              {% endif %}
+            >
+              <span class="cart-link__count">{{ cart_count }}</span>
+            </span>
+          </a>
+        </cart-count>
+      </div>
+    </div>
   </div>
-</nav>
+</header>
 
 {%- schema -%}
 {
   "name": "Navbar",
-  "settings": [],
+  "class": "shopify-section-header-group",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add links below. Each link appears in the header and mobile menu."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL",
+          "info": "Defaults to All products if left blank."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Navbar",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "label": "Shop All",
+            "url": "/collections/all"
+          }
+        }
+      ]
+    }
+  ],
   "enabled_on": {
     "groups": ["header"]
   }
