@@ -7,14 +7,14 @@
   {% render 'product-card', product: product %}
 {% enddoc %}
 
-<article class="product-card">
+<article class="product-card" aria-label="{{ product.title }}">
   <div class="product-card__image-wrapper">
     {%- if product.compare_at_price > product.price -%}
-      <span class="product-card__badge">Sale</span>
+      <span class="product-card__badge" aria-hidden="true">Sale</span>
     {%- endif -%}
 
     {%- if product.featured_image != blank -%}
-      {{ product.featured_image | image_url: width: 600 | image_tag: class: 'product-card__image', loading: 'lazy' }}
+      {{ product.featured_image | image_url: width: 600 | image_tag: class: 'product-card__image', alt: product.featured_image.alt }}
     {%- else -%}
       {{ 'product-1' | placeholder_svg_tag: 'product-card__image product-card__image--placeholder' }}
     {%- endif -%}
@@ -24,9 +24,15 @@
     <h3 class="product-card__title">{{ product.title }}</h3>
 
     <div class="product-card__price">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="visually-hidden">Sale price:</span>
+      {%- endif -%}
       <span class="product-card__price-current">{{ product.price | money }}</span>
       {%- if product.compare_at_price > product.price -%}
-        <s class="product-card__price-compare">{{ product.compare_at_price | money }}</s>
+        <s class="product-card__price-compare">
+          <span class="visually-hidden">Regular price:</span>
+          {{ product.compare_at_price | money }}
+        </s>
       {%- endif -%}
     </div>
 

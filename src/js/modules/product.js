@@ -35,10 +35,18 @@ $(() => {
       ]
     });
 
-    // Change slides with a click
+    // Change slides on click/key press of thumbnails
     $galleryThumbs.on('click', '.slick-slide', (event) => {
       const index = $(event.currentTarget).data('slick-index');
       $galleryMain.slick('slickGoTo', index);
+    });
+
+    $galleryThumbs.on('keydown', '.slick-slide', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const index = $(event.currentTarget).data('slick-index');
+        $galleryMain.slick('slickGoTo', index);
+      }
     });
   }
 
