@@ -1,8 +1,21 @@
-<div class="bg-primary text-light py-4">
+<footer class="footer">
   <div class="container-lg">
-    <code class="h5 m-0 text-light">footer.liquid</code>
+    <div class="footer__inner">
+      <p class="footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | remove: " Shopify Skill Test" }}</p>
+
+      <div class="footer__links">
+        <span class="footer__text">All rights reserved.</span>
+        {%- comment -%}
+        {% for policy in shop.policies %}
+          <a href="{{ policy.url }}" class="footer__link" alt="{{ policy.title }}">{{ policy.title }}</a>
+        {% endfor %}
+        {%- endcomment -%}
+        <a href="/policies/terms-of-service" class="footer__link">Terms and Conditions</a>
+        <a href="/policies/privacy-policy" class="footer__link">Privacy Policy</a>
+      </div>
+    </div>
   </div>
-</div>
+</footer>
 
 {%- schema -%}
 {

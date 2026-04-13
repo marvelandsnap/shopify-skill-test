@@ -16403,7 +16403,7 @@ textarea.form-control-lg {
 }
 /* THEME *********************************************************************/
 .collection {
-  padding: 3rem 0;
+  padding: 2.5rem 0;
 }
 .collection__title {
   margin-bottom: 2rem;
@@ -16430,6 +16430,50 @@ textarea.form-control-lg {
   text-align: center;
   font-size: 1.125rem;
   color: #666;
+}
+
+.footer {
+  background-color: #1F2937;
+  padding: 1.5rem 0;
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__copyright {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0%;
+}
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer__text {
+  font-size: 0.875rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0%;
+}
+.footer__link {
+  font-size: 0.875rem;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+}
+.footer__link:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .navbar__logo {
