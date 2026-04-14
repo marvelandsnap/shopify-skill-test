@@ -10,7 +10,7 @@
         border: none;
         border-radius: $border-radius;
         color: $color-secondary;
-        padding: 16px 24px;
+        padding: px-to-rem(16) px-to-rem(24);
         letter-spacing: $letter-spacing-extra-tight;
         font-weight: $font-weight-bold;
         text-transform: uppercase;

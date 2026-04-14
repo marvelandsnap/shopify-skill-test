@@ -2,17 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px;
   border-radius: $border-radius;
   background-color: $color-grey;
-  padding: 24px;
+  padding: px-to-rem(24);
   h2 {
-    font-size: 24px;
+    font-size: fluid-type(20, 24);
   }
 .image-wrapper {
     position: relative;
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: px-to-rem(16);
     .product-card__image {
         border-radius: $border-radius;
         background-color: $color-highlight-light;
@@ -24,19 +23,19 @@
         background-color: $color-highlight-dark;
         border-radius: 50px;
         color: $color-secondary;
-        padding: 8px 16px;
+        padding: px-to-rem(8) px-to-rem(16);
         font-size: 12px;
         font-weight: $font-weight-bold;
         position: absolute;
-        top: 8px;
-        left: 16px;
+        top: px-to-rem(8);
+        left: px-to-rem(16);
         text-transform: uppercase;
         line-height: 110%;
     }
 }
   
   .price {
-    font-size: 16px;
+    font-size: fluid-type(14, 16);
     .final-price {
         font-weight: $font-weight-bold;
     }

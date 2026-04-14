@@ -108,7 +108,7 @@
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 16px;
+  --bs-border-radius: 1rem;
   --bs-border-radius-sm: 0.25rem;
   --bs-border-radius-lg: 0.5rem;
   --bs-border-radius-xl: 1rem;
@@ -5880,7 +5880,7 @@ textarea.form-control-lg {
   color: var(--bs-btn-close-color);
   background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
   border: 0;
-  border-radius: 16px;
+  border-radius: 1rem;
   opacity: var(--bs-btn-close-opacity);
 }
 .btn-close:hover {
@@ -16411,9 +16411,9 @@ textarea.form-control-lg {
 .product-info .button-atc {
   background-color: #8D81D2;
   border: none;
-  border-radius: 16px;
+  border-radius: 1rem;
   color: #ffffff;
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   letter-spacing: -3%;
   font-weight: 700;
   text-transform: uppercase;
@@ -16499,7 +16499,7 @@ textarea.form-control-lg {
 }
 .quantity-selector #quantity-input {
   text-align: center;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
   font-weight: 600;
   letter-spacing: -3%;
   line-height: 1.125;
@@ -16520,7 +16520,7 @@ textarea.form-control-lg {
   -o-object-fit: cover;
      object-fit: cover;
   background-color: #E8E6F6;
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 .product-gallery__thumbs {
   margin-top: 10px;
@@ -16528,7 +16528,7 @@ textarea.form-control-lg {
 .product-gallery__thumb {
   padding: 4px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 1rem;
   border: 2px solid transparent;
   width: 100%;
   max-width: 100px;
@@ -16539,7 +16539,7 @@ textarea.form-control-lg {
   -o-object-fit: cover;
      object-fit: cover;
   background: #E8E6F6;
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 .product-gallery__thumb.slick-current {
   border-color: #1F2937;
@@ -16555,7 +16555,7 @@ textarea.form-control-lg {
 }
 
 .price {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
 }
 
 .price .final-price {
@@ -16566,18 +16566,20 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px;
-  border-radius: 16px;
+  border-radius: 1rem;
   background-color: rgba(242, 242, 247, 0.5);
-  padding: 24px;
+  padding: 1.5rem;
+}
+.product-card h2, .product-card .h2 {
+  font-size: clamp(1.25rem, 1.161971831rem + 0.3755868545vw, 1.5rem);
 }
 .product-card .image-wrapper {
   position: relative;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 .product-card .image-wrapper .product-card__image {
-  border-radius: 16px;
+  border-radius: 1rem;
   background-color: #E8E6F6;
   padding: 20px;
   max-width: 100%;
@@ -16587,17 +16589,17 @@ textarea.form-control-lg {
   background-color: #66619E;
   border-radius: 50px;
   color: #ffffff;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   font-size: 12px;
   font-weight: 700;
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 0.5rem;
+  left: 1rem;
   text-transform: uppercase;
   line-height: 110%;
 }
 .product-card .price {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
 }
 .product-card .price .final-price {
   font-weight: 700;
