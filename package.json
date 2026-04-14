@@ -39,6 +39,7 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "claude": "^0.1.1",
     "gulp-cli": "^3.1.0"
   }
 }
