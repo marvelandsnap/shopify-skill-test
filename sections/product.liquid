@@ -1,5 +1,19 @@
 {%- render 'utility.make-section-placeholder', filename: 'product.liquid' -%}
 
+<div class="container">
+  <div class="pdp--above-the-fold">
+    <div class="slick-carousel">
+    </div>
+    <div class="product-info">
+      <h1 class="product-title">{{ product.title }}</h1>
+      <p class="product-price">{{ product.price | money }}</p>
+      <p class="product-description">{{ product.description }}</p>
+      <button class="button-primary">Add to Cart</button>
+      <div class="accordions">
+        //accordions go here
+      </div>
+  </div>
+</div>
 {%- schema -%}
 {
   "name": "Product",
