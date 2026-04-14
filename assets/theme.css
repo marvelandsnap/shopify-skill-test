@@ -16426,6 +16426,7 @@ textarea.form-control-lg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  align-self: flex-end;
 }
 
 /* THIRD-PARTY PACKAGES ******************************************************/
