@@ -30,7 +30,7 @@
                 name="quantity"
                 value="1" 
                 min="1" 
-                max="{{ product.available }}"
+                max="99" {% comment %} hard-coded a value here, but ideally this would be based on available inventory for the selected variant {% endcomment %}
                 readonly
             />
             
@@ -50,6 +50,8 @@
     </form>
 
     <script>
+    // JavaScript to handle variant selection, quantity changes, and add to cart functionality
+    // This should be exported to a separate JS file in production for better performance and maintainability
     const variantSelect = document.getElementById('variant-select');
     const variantIdInput = document.getElementById('variant-id-input');
     const priceFinal = document.querySelector('.product-price .final-price');
@@ -112,7 +114,6 @@
         const input = document.getElementById('quantity-input');
         const max = parseInt(input.max);
         const current = parseInt(input.value);
-
         if (current < max) {
             input.value = current + 1;
             updatePrice();
