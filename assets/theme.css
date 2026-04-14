@@ -16451,6 +16451,14 @@ textarea.form-control-lg {
   outline: 2px solid #000;
 }
 
+.price {
+  font-size: 16px;
+}
+
+.price .final-price {
+  font-weight: 700;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;

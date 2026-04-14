@@ -12,20 +12,8 @@
         </div>
     </a>
     <h2>{{ product.title }}</h2>
-    <div class="price">
-        {% if product.compare_at_price > product.price %}
-        <p>
-            <span class="visually-hidden">On sale: </span>
-            <span class="final-price">{{ product.price | money }}</span>
-            <span class="visually-hidden">Original price: </span>
-            <del class="original-price">{{ product.compare_at_price | money }}</del>
-        </p>
-        {% else %}
-        <p>
-            <span class="visually-hidden">Price: </span>
-            <span class="final-price">{{ product.price | money }}</span>
-        </p>
-        {% endif %}
+    <div>
+        {% render 'price', product: product %}
     </div>
     <p>{{ product.description }}</p>
     <a class="button-circle" href="{{ product.url }}">
