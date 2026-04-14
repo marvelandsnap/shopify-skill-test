@@ -12,30 +12,32 @@
       <button class="button-atc">Add to Cart</button>
       <div class="accordion" id="productAccordion">
         {% for block in section.blocks %}
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-{{ block.id }}">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-{{ block.id }}"
-                aria-expanded="false"
-                aria-controls="collapse-{{ block.id }}"
+          {% if block.settings.title and block.settings.metafield_key and block.settings.metafield_namespace %}
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-{{ block.id }}">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-{{ block.id }}"
+                  aria-expanded="false"
+                  aria-controls="collapse-{{ block.id }}"
+                >
+                  {{ block.settings.title }}
+                </button>
+              </h2>
+              <div
+                id="collapse-{{ block.id }}"
+                class="accordion-collapse collapse"
+                aria-labelledby="heading-{{ block.id }}"
+                data-bs-parent="#productAccordion"
               >
-                {{ block.settings.title }}
-              </button>
-            </h2>
-            <div
-              id="collapse-{{ block.id }}"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-{{ block.id }}"
-              data-bs-parent="#productAccordion"
-            >
-              <div class="accordion-body">
-                {{ product.metafields[block.settings.metafield_namespace][block.settings.metafield_key] | metafield_tag}}
+                <div class="accordion-body">
+                  {{ product.metafields[block.settings.metafield_namespace][block.settings.metafield_key] | metafield_tag}}
+                </div>
               </div>
             </div>
-          </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
