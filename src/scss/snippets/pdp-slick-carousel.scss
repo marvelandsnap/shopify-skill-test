@@ -38,4 +38,14 @@
       border-color: #000;
     }
   }
+  .thumb-button {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.thumb-button:focus {
+  outline: 2px solid #000;
+}
 }

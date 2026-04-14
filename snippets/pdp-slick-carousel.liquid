@@ -22,10 +22,16 @@
   <div class="product-gallery__thumbs">
     {% for image in product.images %}
       <div class="product-gallery__thumb">
-        <img 
-          src="{{ image | image_url: width: 200 }}" 
-          alt="{{ image.alt | escape }}"
+        <button 
+            class="thumb-button"
+            type="button"
+            aria-label="View image {{ forloop.index }}"
         >
+            <img 
+            src="{{ image | image_url: width: 200 }}" 
+            alt="{{ image.alt | escape }}"
+            >
+        </button>
       </div>
     {% endfor %}
   </div>

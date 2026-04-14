@@ -16438,6 +16438,15 @@ textarea.form-control-lg {
 .product-gallery__thumb.slick-current img {
   border-color: #000;
 }
+.product-gallery .thumb-button {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+.product-gallery .thumb-button:focus {
+  outline: 2px solid #000;
+}
 
 .product-card {
   display: flex;
