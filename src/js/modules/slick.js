@@ -1,34 +1,52 @@
 import '@accessible360/accessible-slick';
 
 $(() => {
-  const $carousels = $('[data-slick]');
+  const $mainGallery = $('.product-gallery__main');
+  const $thumbsGallery = $('.product-gallery__thumbs');
 
-  if ($carousels.length) {
-    $carousels.each((index, element) => {
-      const $carousel = $(element);
-      $carousel.slick();
-    });
-  }
-});
+  if ($mainGallery.length && $thumbsGallery.length) {
 
-  $(document).ready(function(){
-
-    $('.product-gallery__main').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      adaptiveHeight: false,
-      asNavFor: '.product-gallery__thumbs',
-      accessibility: true
-    });
-
-    $('.product-gallery__thumbs').slick({
+    // Initialize thumbnails first
+    $thumbsGallery.slick({
       slidesToShow: 5,
       slidesToScroll: 1,
       asNavFor: '.product-gallery__main',
       focusOnSelect: true,
       arrows: false,
+      infinite: false,
+      accessibility: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4
+          }
+        }
+      ]
+    });
+
+    // Initialize main carousel after thumbnails
+    $mainGallery.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      asNavFor: '.product-gallery__thumbs',
+      infinite: false,
       accessibility: true
     });
 
-  });
+    // Debug: Log click events
+    $thumbsGallery.on('click', '.product-gallery__thumb', function(e) {
+      const index = $thumbsGallery.find('.product-gallery__thumb').index(this);
+      $mainGallery.slick('slickGoTo', index);
+    });
+  }
+
+  // Generic carousels with data-slick attribute
+  const $carousels = $('[data-slick]');
+  if ($carousels.length) {
+    $carousels.each((i, element) => {
+      $(element).slick();
+    });
+  }
+});
