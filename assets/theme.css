@@ -16402,6 +16402,32 @@ textarea.form-control-lg {
   }
 }
 /* THEME *********************************************************************/
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: rgba(242, 242, 247, 0.5);
+  padding: 24px;
+}
+.product-card .product-card__image {
+  border-radius: 16px;
+  background-color: #E8E6F6;
+  padding: 20px;
+  max-width: 100%;
+  height: auto;
+}
+.product-card .button-circle {
+  background-color: #1F2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 /* THIRD-PARTY PACKAGES ******************************************************/
 /* Slider */
 .slick-slider {

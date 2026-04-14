@@ -1,15 +1,18 @@
+<div class="col-lg-4 col-md-6 col-12">
 <div class="product-card">
     <a href="{{ product.url }}">
         {% if product.featured_image %}
-            <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | default: '' }}" width="500" height="500">
+            <img class="product-card__image" src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | default: '' }}" width="500" height="500">
         {% else %}
-            <div>Image Coming Soon!</div>
+            <div class="product-card__image">Image Coming Soon!</div>
         {% endif %}
     </a>
-    <h3>{{ product.title }}</h3>
+    <h2>{{ product.title }}</h2>
     <p>{{ product.price | money }}</p>
     <p>{{ product.description }}</p>
-    <a href="{{ product.url }}">
-    >
+    <a class="button-circle" href="{{ product.url }}">
+        <img src="{{ 'chevron-right.svg' | asset_url }}" alt="" height="16" width="9">
+        <span class="visually-hidden">View details for {{ product.title }}</span>
     </a>
+</div>
 </div>
