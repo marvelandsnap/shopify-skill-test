@@ -1,13 +1,32 @@
 <div class="product-card">
     <a href="{{ product.url }}">
-        {% if product.featured_image %}
-            <img class="product-card__image" src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | default: '' }}" width="500" height="500">
-        {% else %}
-            <div class="product-card__image">Image Coming Soon!</div>
-        {% endif %}
+        <div class="image-wrapper">
+            {% if product.featured_image %}
+                <img class="product-card__image" src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | default: '' }}" width="500" height="500">
+            {% else %}
+                <div class="product-card__image">Image Coming Soon!</div>
+            {% endif %}
+            {% if product.compare_at_price > product.price %}
+                <div class="product-card__badge">Sale</div>
+            {% endif %}
+        </div>
     </a>
     <h2>{{ product.title }}</h2>
-    <p>{{ product.price | money }}</p>
+    <div class="price">
+        {% if product.compare_at_price > product.price %}
+        <p>
+            <span class="visually-hidden">On sale: </span>
+            <span class="final-price">{{ product.price | money }}</span>
+            <span class="visually-hidden">Original price: </span>
+            <del class="original-price">{{ product.compare_at_price | money }}</del>
+        </p>
+        {% else %}
+        <p>
+            <span class="visually-hidden">Price: </span>
+            <span class="final-price">{{ product.price | money }}</span>
+        </p>
+        {% endif %}
+    </div>
     <p>{{ product.description }}</p>
     <a class="button-circle" href="{{ product.url }}">
         <img src="{{ 'chevron-right.svg' | asset_url }}" alt="" height="16" width="9">

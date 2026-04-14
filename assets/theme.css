@@ -16411,12 +16411,36 @@ textarea.form-control-lg {
   background-color: rgba(242, 242, 247, 0.5);
   padding: 24px;
 }
-.product-card .product-card__image {
+.product-card .image-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.product-card .image-wrapper .product-card__image {
   border-radius: 16px;
   background-color: #E8E6F6;
   padding: 20px;
   max-width: 100%;
   height: auto;
+}
+.product-card .image-wrapper .product-card__badge {
+  background-color: #66619E;
+  border-radius: 50px;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  text-transform: uppercase;
+  line-height: 110%;
+}
+.product-card .price {
+  font-size: 16px;
+}
+.product-card .price .final-price {
+  font-weight: 700;
 }
 .product-card .button-circle {
   background-color: #1F2937;
