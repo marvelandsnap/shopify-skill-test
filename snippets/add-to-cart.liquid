@@ -1,52 +1,188 @@
 {%  if product.available %}
-    <div class="quantity-selector">
-    <button 
-        class="quantity-btn decrement" 
-        onclick="decrementQuantity()"
-        id="decrement-btn"
-    >
-        -
-    </button>
-    
-    <input 
-        type="number" 
-        id="quantity-input" 
-        value="1" 
-        min="1" 
-        max="{{ product.quantity }}"
-        readonly
-    />
-    
-    <button 
-        class="quantity-btn increment" 
-        onclick="incrementQuantity()"
-        id="increment-btn"
-    >
-        +
-    </button>
-    </div>
+    <form id="add-to-cart-form" class="add-to-cart-form">
+        
+        {% if product.variants_count > 1 %}
+            <div class="variant-selector">
+                <label for="variant-select">Select Option:</label>
+                <select id="variant-select" name="variant" required>
+                    {% for variant in product.variants %}
+                        <option value="{{ variant.id }}" data-price="{{ variant.price }}" data-compare-price="{{ variant.compare_at_price | default: 0 }}" {% if forloop.first %}selected{% endif %}>
+                            {{ variant.title }} - {{ variant.price | money }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endif %}
+        
+        <div class="quantity-selector">
+            <button 
+                type="button"
+                class="quantity-btn decrement" 
+                onclick="decrementQuantity()"
+                id="decrement-btn"
+            >
+                -
+            </button>
+            
+            <input 
+                type="number" 
+                id="quantity-input" 
+                name="quantity"
+                value="1" 
+                min="1" 
+                max="{{ product.available }}"
+                readonly
+            />
+            
+            <button 
+                type="button"
+                class="quantity-btn increment" 
+                onclick="incrementQuantity()"
+                id="increment-btn"
+            >
+                +
+            </button>
+        </div>
+        
+        <input type="hidden" id="variant-id-input" name="id" value="" />
+        
+        <button type="submit" class="button-atc" id="add-to-cart-btn">Add to Cart</button>
+    </form>
 
     <script>
+    const variantSelect = document.getElementById('variant-select');
+    const variantIdInput = document.getElementById('variant-id-input');
+    const priceFinal = document.querySelector('.product-price .final-price');
+    const priceOriginal = document.querySelector('.product-price .original-price');
+    const defaultVariantPrice = {{ product.variants.first.price }};
+    const defaultComparePrice = {{ product.variants.first.compare_at_price | default: 0 }};
+    const currencyCode = '{{ shop.currency }}';
+
+    function formatMoney(cents) {
+        return new Intl.NumberFormat(undefined, {
+            style: 'currency',
+            currency: currencyCode,
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(cents / 100);
+    }
+
+    function getSelectedVariantPrice() {
+        if (variantSelect) {
+            return parseInt(variantSelect.selectedOptions[0].dataset.price);
+        }
+
+        return defaultVariantPrice;
+    }
+
+    function getSelectedComparePrice() {
+        if (variantSelect) {
+            const compare = variantSelect.selectedOptions[0].dataset.comparePrice;
+            return compare ? parseInt(compare) : null;
+        }
+
+        return defaultComparePrice || null;
+    }
+
+    function updatePrice() {
+        const quantity = parseInt(document.getElementById('quantity-input').value);
+        const variantPrice = getSelectedVariantPrice();
+        const comparePrice = getSelectedComparePrice();
+
+        if (priceFinal) {
+            priceFinal.textContent = formatMoney(variantPrice * quantity);
+        }
+
+        if (priceOriginal && comparePrice) {
+            priceOriginal.textContent = formatMoney(comparePrice * quantity);
+        }
+    }
+
+    if (variantSelect) {
+        variantIdInput.value = variantSelect.value;
+        variantSelect.addEventListener('change', function() {
+            variantIdInput.value = this.value;
+            updatePrice();
+        });
+    } else {
+        variantIdInput.value = '{{ product.variants.first.id }}';
+    }
+
     function incrementQuantity() {
         const input = document.getElementById('quantity-input');
         const max = parseInt(input.max);
         const current = parseInt(input.value);
-        
+
         if (current < max) {
-        input.value = current + 1;
+            input.value = current + 1;
+            updatePrice();
         }
     }
-    
+
     function decrementQuantity() {
         const input = document.getElementById('quantity-input');
         const current = parseInt(input.value);
-        
+
         if (current > 1) {
-        input.value = current - 1;
+            input.value = current - 1;
+            updatePrice();
         }
     }
+
+    updatePrice();
+
+    document.getElementById('add-to-cart-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const quantity = parseInt(document.getElementById('quantity-input').value);
+        const variantId = document.getElementById('variant-id-input').value;
+        const button = document.getElementById('add-to-cart-btn');
+        const originalText = button.textContent;
+        
+        button.textContent = 'Adding...';
+        button.disabled = true;
+        
+        try {
+            const response = await fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    items: [{
+                        id: variantId,
+                        quantity: quantity
+                    }]
+                })
+            });
+            
+            if (response.ok) {
+                button.textContent = 'Added!';
+                
+                // Fetch and log cart contents
+                fetch('/cart.js')
+                    .then(res => res.json())
+                    .then(cart => console.log('Cart contents:', cart));
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 2000);
+                // Optionally refresh cart or redirect
+                console.log('Item added to cart successfully.');
+            } else {
+                throw new Error('Failed to add item to cart');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            button.textContent = 'Error - Try Again';
+            button.disabled = false;
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+    });
     </script>
-    <button class="button-atc">Add to Cart</button>
 {% else %}
-    <button class="button-atc" disabled>Out of Stock</button>
+    <button class="button-atc" id="add-to-cart-btn" disabled>Out of Stock</button>
 {% endif %}

@@ -16483,6 +16483,7 @@ textarea.form-control-lg {
   border-radius: 8px;
   display: flex;
   align-items: center;
+  justify-self: flex-start;
 }
 .quantity-selector .quantity-btn {
   width: 36px;
