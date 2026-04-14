@@ -16402,6 +16402,24 @@ textarea.form-control-lg {
   }
 }
 /* THEME *********************************************************************/
+.product-info .product-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -2%;
+  line-height: 1.1;
+}
+.product-info .button-atc {
+  background-color: #8D81D2;
+  border: none;
+  border-radius: 16px;
+  color: #ffffff;
+  padding: 16px 24px;
+  letter-spacing: -3%;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.125;
+}
+
 .product-gallery__main {
   width: 100%;
 }

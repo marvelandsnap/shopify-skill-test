@@ -1,0 +1,19 @@
+.product-info {
+    .product-title {
+        font-size: 40px;
+        font-weight: $font-weight-bold;
+        letter-spacing: $letter-spacing-tight;
+        line-height: 1.1;
+    }
+    .button-atc {
+        background-color: $color-highlight-medium;
+        border: none;
+        border-radius: $border-radius;
+        color: $color-secondary;
+        padding: 16px 24px;
+        letter-spacing: $letter-spacing-extra-tight;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        line-height: calc(18/16); //font variables provided by figma
+    }
+}
