@@ -17,6 +17,12 @@ $(() => {
       accessibility: true,
       responsive: [
         {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 4
+          }
+        }
+        ,{
           breakpoint: 768,
           settings: {
             slidesToShow: 4

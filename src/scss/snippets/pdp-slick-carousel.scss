@@ -26,16 +26,18 @@
     padding: 4px;
     cursor: pointer;
     border-radius: $border-radius;
+    border: 2px solid transparent;
+    width: 100%;
+    max-width: 100px;
     img {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       background: $color-highlight-light;
-      border: 2px solid transparent;
+      border-radius: $border-radius;
     }
-
-    &.slick-current img {
-      border-color: #000;
+    &.slick-current {
+      border-color: $color-primary;
     }
   }
   .thumb-button {

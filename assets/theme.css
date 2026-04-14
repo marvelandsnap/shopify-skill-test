@@ -16426,6 +16426,9 @@ textarea.form-control-lg {
   padding: 4px;
   cursor: pointer;
   border-radius: 16px;
+  border: 2px solid transparent;
+  width: 100%;
+  max-width: 100px;
 }
 .product-gallery__thumb img {
   width: 100%;
@@ -16433,10 +16436,10 @@ textarea.form-control-lg {
   -o-object-fit: cover;
      object-fit: cover;
   background: #E8E6F6;
-  border: 2px solid transparent;
+  border-radius: 16px;
 }
-.product-gallery__thumb.slick-current img {
-  border-color: #000;
+.product-gallery__thumb.slick-current {
+  border-color: #1F2937;
 }
 .product-gallery .thumb-button {
   all: unset;
