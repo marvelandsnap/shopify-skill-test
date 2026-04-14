@@ -16420,6 +16420,64 @@ textarea.form-control-lg {
   line-height: 1.125;
 }
 
+.accordion .accordion-item {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #F2F2F7;
+  margin-bottom: 0;
+}
+.accordion .accordion-header {
+  text-transform: uppercase;
+}
+.accordion .accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 14px;
+  color: #212529;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease-in-out;
+}
+.accordion .accordion-button:not(.collapsed) {
+  border-bottom: none;
+  box-shadow: none;
+  font-weight: 700;
+}
+.accordion .accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
+}
+.accordion .accordion-button::after {
+  flex-shrink: 0;
+  width: 8px;
+  height: 6px;
+  margin-left: auto;
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+.accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+.accordion .accordion-collapse {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease-in-out;
+}
+.accordion .accordion-collapse.show {
+  max-height: 1000px;
+}
+.accordion .accordion-body {
+  padding: 1rem 1.25rem;
+}
+
 .product-gallery__main {
   width: 100%;
 }
