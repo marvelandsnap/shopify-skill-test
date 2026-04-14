@@ -4,7 +4,33 @@
 {% endcomment %}
 
 {% if product.images %}
- test
+ <div class="product-gallery">
+
+  <!-- Main Carousel -->
+  <div class="product-gallery__main">
+    {% for image in product.images %}
+      <div class="product-gallery__slide">
+        <img 
+          src="{{ image | image_url: width: 1200 }}" 
+          alt="{{ image.alt | escape }}"
+        >
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Thumbnail Navigation -->
+  <div class="product-gallery__thumbs">
+    {% for image in product.images %}
+      <div class="product-gallery__thumb">
+        <img 
+          src="{{ image | image_url: width: 200 }}" 
+          alt="{{ image.alt | escape }}"
+        >
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
 {% else %}
   <div class="carousel-empty">
     <p>No images available for this product</p>

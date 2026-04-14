@@ -1,11 +1,11 @@
 {%- render 'utility.make-section-placeholder', filename: 'product.liquid' -%}
 
 <div class="container">
-  <div class="pdp--above-the-fold">
-    <div class="slick-carousel">
-      {% include 'pdp-slick-carousel' with product: product %}
+  <div class="pdp--above-the-fold row">
+    <div class="slick-carousel col-lg-6 col-12">
+      {% render 'pdp-slick-carousel' with product: product %}
     </div>
-    <div class="product-info">
+    <div class="product-info col-lg-6 col-12">
       <h1 class="product-title">{{ product.title }}</h1>
       <p class="product-price">{{ product.price | money }}</p>
       <p class="product-description">{{ product.description }}</p>
@@ -13,6 +13,7 @@
       <div class="accordions">
         //accordions go here
       </div>
+    </div>
   </div>
 </div>
 {%- schema -%}

@@ -696,7 +696,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _accessible360_accessible_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @accessible360/accessible-slick */ \"./node_modules/@accessible360/accessible-slick/slick/slick.js\");\n\n$(function () {\n  var $carousels = $('[data-slick]');\n  if ($carousels.length) {\n    $carousels.each(function (index, element) {\n      var $carousel = $(element);\n      $carousel.slick();\n    });\n  }\n});\n\n//# sourceURL=webpack://shopify-skill-test/./src/js/modules/slick.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _accessible360_accessible_slick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @accessible360/accessible-slick */ \"./node_modules/@accessible360/accessible-slick/slick/slick.js\");\n\n$(function () {\n  var $carousels = $('[data-slick]');\n  if ($carousels.length) {\n    $carousels.each(function (index, element) {\n      var $carousel = $(element);\n      $carousel.slick();\n    });\n  }\n});\n$(document).ready(function () {\n  $('.product-gallery__main').slick({\n    slidesToShow: 1,\n    slidesToScroll: 1,\n    arrows: true,\n    adaptiveHeight: false,\n    asNavFor: '.product-gallery__thumbs',\n    accessibility: true\n  });\n  $('.product-gallery__thumbs').slick({\n    slidesToShow: 5,\n    slidesToScroll: 1,\n    asNavFor: '.product-gallery__main',\n    focusOnSelect: true,\n    arrows: false,\n    accessibility: true\n  });\n});\n\n//# sourceURL=webpack://shopify-skill-test/./src/js/modules/slick.js?");
 
 /***/ }),
 

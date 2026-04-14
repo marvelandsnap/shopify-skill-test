@@ -1,0 +1,36 @@
+.product-gallery__main {
+  width: 100%;
+}
+
+.product-gallery__slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* makes it square */
+  overflow: hidden;
+}
+
+.product-gallery__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-gallery__thumbs {
+  margin-top: 10px;
+}
+
+.product-gallery__thumb {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.product-gallery__thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+
+.product-gallery__thumb.slick-current img {
+  border-color: #000;
+}
