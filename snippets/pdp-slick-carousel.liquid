@@ -1,0 +1,13 @@
+{% comment %}
+  Slick Accessible Carousel - Displays product images with main carousel and thumbnail navigation
+  Usage: {% include 'pdp-slick-carousel' with product: product %}
+{% endcomment %}
+
+{% if product.images %}
+ test
+{% else %}
+  <div class="carousel-empty">
+    <p>No images available for this product</p>
+  </div>
+{% endif %}
+>

@@ -3,6 +3,7 @@
 <div class="container">
   <div class="pdp--above-the-fold">
     <div class="slick-carousel">
+      {% include 'pdp-slick-carousel' with product: product %}
     </div>
     <div class="product-info">
       <h1 class="product-title">{{ product.title }}</h1>
