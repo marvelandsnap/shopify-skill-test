@@ -10,8 +10,33 @@
       <p class="product-price">{% render 'price', product: product %}</p>
       <p class="product-description">{{ product.description }}</p>
       <button class="button-atc">Add to Cart</button>
-      <div class="accordions">
-        //accordions go here
+      <div class="accordion" id="productAccordion">
+        {% for block in section.blocks %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-{{ block.id }}">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-{{ block.id }}"
+                aria-expanded="false"
+                aria-controls="collapse-{{ block.id }}"
+              >
+                {{ block.settings.title }}
+              </button>
+            </h2>
+            <div
+              id="collapse-{{ block.id }}"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading-{{ block.id }}"
+              data-bs-parent="#productAccordion"
+            >
+              <div class="accordion-body">
+                {{ product.metafields[block.settings.metafield_namespace][block.settings.metafield_key] | metafield_tag}}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -21,10 +46,45 @@
   "name": "Product",
   "tag": "section",
   "settings": [],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Accordion Title",
+          "default": "Accordion Title"
+        },
+        {
+          "type": "text",
+          "id": "metafield_namespace",
+          "label": "Metafield Namespace",
+          "default": "custom"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield Key",
+          "default": "product_details"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Product"
+      "name": "Product",
+      "blocks": [
+        {
+          "type": "accordion",
+          "settings": {
+            "title": "Product Details",
+            "metafield_key": "product_details",
+            "metafield_namespace": "accordion"
+          }
+        }
+      ]
     }
   ],
   "enabled_on": {

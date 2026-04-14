@@ -1,7 +1,55 @@
 {
   "sections": {
     "product": {
-      "type": "product"
+      "type": "product",
+      "blocks": {
+        "product_details": {
+          "type": "accordion",
+          "settings": {
+            "title": "Product Details",
+            "metafield_namespace": "accordion",
+            "metafield_key": "product_details"
+          }
+        },
+        "ingredients": {
+          "type": "accordion",
+          "settings": {
+            "title": "Ingredients",
+            "metafield_namespace": "accordion",
+            "metafield_key": "ingredients"
+          }
+        },
+        "how_its_made": {
+          "type": "accordion",
+          "settings": {
+            "title": "How it's made",
+            "metafield_namespace": "accordion",
+            "metafield_key": "how_its_made"
+          }
+        },
+        "where_its_made": {
+          "type": "accordion",
+          "settings": {
+            "title": "Where it's made",
+            "metafield_namespace": "accordion",
+            "metafield_key": "where_its_made"
+          }
+        },
+        "how_to_use": {
+          "type": "accordion",
+          "settings": {
+            "title": "How to use",
+            "metafield_namespace": "accordion",
+            "metafield_key": "how_to_use"
+          }
+      }},
+      "block_order": [
+        "product_details",
+        "ingredients",
+        "how_its_made",
+        "where_its_made",
+        "how_to_use"
+      ]
     }
   },
   "order": [
