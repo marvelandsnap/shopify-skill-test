@@ -1,0 +1,52 @@
+{%  if product.available %}
+    <div class="quantity-selector">
+    <button 
+        class="quantity-btn decrement" 
+        onclick="decrementQuantity()"
+        id="decrement-btn"
+    >
+        -
+    </button>
+    
+    <input 
+        type="number" 
+        id="quantity-input" 
+        value="1" 
+        min="1" 
+        max="{{ product.quantity }}"
+        readonly
+    />
+    
+    <button 
+        class="quantity-btn increment" 
+        onclick="incrementQuantity()"
+        id="increment-btn"
+    >
+        +
+    </button>
+    </div>
+
+    <script>
+    function incrementQuantity() {
+        const input = document.getElementById('quantity-input');
+        const max = parseInt(input.max);
+        const current = parseInt(input.value);
+        
+        if (current < max) {
+        input.value = current + 1;
+        }
+    }
+    
+    function decrementQuantity() {
+        const input = document.getElementById('quantity-input');
+        const current = parseInt(input.value);
+        
+        if (current > 1) {
+        input.value = current - 1;
+        }
+    }
+    </script>
+    <button class="button-atc">Add to Cart</button>
+{% else %}
+    <button class="button-atc" disabled>Out of Stock</button>
+{% endif %}

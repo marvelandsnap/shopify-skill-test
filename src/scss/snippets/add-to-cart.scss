@@ -1,0 +1,28 @@
+.quantity-selector {
+    border: 1px solid $color-primary;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    
+    .quantity-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .quantity-btn, #quantity-input {
+        border: none;
+        background: none;
+        width: 35px;
+        height: 46px;
+    }
+    
+    #quantity-input {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: $letter-spacing-extra-tight;
+        line-height: calc(18/16); //font variables provided by figma
+    }
+}

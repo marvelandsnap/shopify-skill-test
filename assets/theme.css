@@ -16478,6 +16478,32 @@ textarea.form-control-lg {
   padding: 1rem 1.25rem;
 }
 
+.quantity-selector {
+  border: 1px solid #1F2937;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.quantity-selector .quantity-btn {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.quantity-selector .quantity-btn, .quantity-selector #quantity-input {
+  border: none;
+  background: none;
+  width: 35px;
+  height: 46px;
+}
+.quantity-selector #quantity-input {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -3%;
+  line-height: 1.125;
+}
+
 .product-gallery__main {
   width: 100%;
 }

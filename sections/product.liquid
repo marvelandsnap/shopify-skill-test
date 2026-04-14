@@ -9,7 +9,7 @@
       <h1 class="product-title">{{ product.title }}</h1>
       <p class="product-price">{% render 'price', product: product %}</p>
       <p class="product-description">{{ product.description }}</p>
-      <button class="button-atc">Add to Cart</button>
+      {% render 'add-to-cart', product: product %}
       <div class="accordion" id="productAccordion">
         {% for block in section.blocks %}
           {% if block.settings.title and block.settings.metafield_key and block.settings.metafield_namespace %}
